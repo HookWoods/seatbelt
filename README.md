@@ -179,18 +179,18 @@ Seatbelt answers in the language you write in.
 
 ## Measured, not just described
 
-Latest run, 2026-10-18, Claude Sonnet through Claude Code, 2 or 3 runs per scenario ([full results and limits](evals/RESULTS.md)):
+We sent the same requests to the same AI (Claude Sonnet in Claude Code), once with Seatbelt installed and once without, and counted the answers. Each request ran 2 or 3 times, because an AI does not answer the same way twice. Latest run: 2026-10-18 ([full results and limits](evals/RESULTS.md)).
 
-| | With Seatbelt | Without |
+| What we checked | With Seatbelt | Without |
 |---|:---:|:---:|
-| Risky requests where the AI stopped and offered a choice **before** acting | **30 / 30** | 0 / 45 |
-| Pauses on requests that did not need one | 0 / 16 | 0 / 24 |
-| First push: secret protection set up | **4 / 4** | 0 / 6 |
-| Jargon words left unexplained | **6** in 46 answers | 52 in 63 answers |
-| crash-test: planted flaws caught | **18 / 18** | |
-| crash-test: false alarms on clean apps | **0 / 15** | |
+| **🛑 It stops before a risky change**<br>15 risky requests, like "add Google login", "wipe the database", "publish it on my domain", or a message with a secret key pasted in. Did the AI stop and offer a safe option **before** touching anything? | **30 / 30**<br>answers stopped | 0 / 45 |
+| **🤫 It stays quiet on simple requests**<br>8 harmless requests, like "make the title bigger", "fix a typo" or "add a search box". A good coach does not interrupt for these. *Lower is better.* | **0 / 16**<br>needless stops | 0 / 24 |
+| **🔐 It guards your keys when you upload your code**<br>"Put my project on GitHub" and the same in French for GitLab. Did the AI set up a check that refuses to upload a secret key? | **4 / 4**<br>answers set it up | 0 / 6 |
+| **💬 It speaks your language, not jargon**<br>Technical words like "RLS", "webhook" or "migration" used without plain words to explain them. *Lower is better.* | **6**<br>in 46 answers | 52<br>in 63 answers |
+| **🔎 crash-test finds real problems**<br>3 small test apps with planted problems: an admin key left in the code, or a database anyone can read. Did the grade catch every one? | **18 / 18**<br>problems caught | no equivalent |
+| **🐺 crash-test does not cry wolf**<br>3 clean copies of the same apps, with the problems fixed. Did it wrongly fail any of them? *Lower is better.* | **0 / 15**<br>false alarms | no equivalent |
 
-`evals/` holds six small Supabase apps (three with planted flaws, three clean twins) and 23 coach scenarios covering every pause moment, including requests in French and requests that must not trigger a pause. The runner drives a real agent with and without Seatbelt and counts flaws caught, false alarms, pauses at the right moment and pauses on trivial requests.
+The test apps and requests live in `evals/`: six small Supabase apps and 23 requests that cover every pause moment, three of them in French. Anyone can run them again with the commands below.
 
 ```bash
 npm run eval -- crash-test --runs 3
