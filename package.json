@@ -8,6 +8,7 @@
   "scripts": {
     "test": "node --test \"tests/**/*.test.mjs\"",
     "validate": "node scripts/validate-skills.mjs skills",
+    "guard": "node scripts/skill-guard.mjs",
     "eval": "node evals/run.mjs"
   }
 }

@@ -200,6 +200,7 @@ Améliorer la formulation des skills vaut autant que du code. Avant d'ouvrir une
 ```bash
 npm test          # tests du contenu, du scoring et du lanceur (Node 22+, aucune dépendance)
 npm run validate  # limites des plateformes : nom, longueur de la description, taille des fichiers
+npm run guard     # pas d'instructions cachées ; un nouveau domaine ou une commande demande l'accord d'un mainteneur
 ```
 
 Les nouveaux contrôles crash-test vont dans `skills/crash-test/checks/`, les nouvelles stacks dans `skills/crash-test/stacks/`, chacun avec une app de test dans `evals/fixtures/` qui prouve que le contrôle trouve la faille et reste silencieux sur la version propre.

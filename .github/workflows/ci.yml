@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
 
 permissions:
   contents: read
@@ -25,3 +26,23 @@ jobs:
           node-version: 22
       - run: npm test
       - run: npm run validate
+
+  skill-guard:
+    # Skills are instructions that agents obey: hidden instructions always fail,
+    # new outbound reach (domain, shell command, tool permission) needs the
+    # "capability-approved" label, which only maintainers can add.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: node scripts/skill-guard.mjs "origin/${BASE_REF}"
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          SKILL_GUARD_APPROVED: ${{ contains(github.event.pull_request.labels.*.name, 'capability-approved') && '1' || '0' }}

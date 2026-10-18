@@ -199,6 +199,7 @@ Improvements to the wording of the skills are as valuable as code. Before openin
 ```bash
 npm test          # content, scorer and runner tests (Node 22+, no dependencies)
 npm run validate  # platform limits: name, description length, file sizes
+npm run guard     # no hidden instructions; new domains or commands need a maintainer's approval
 ```
 
 New crash-test checks go in `skills/crash-test/checks/`, new stacks in `skills/crash-test/stacks/`, each with a fixture app in `evals/fixtures/` that proves the check catches the flaw and stays quiet on a clean twin.
