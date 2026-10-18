@@ -101,3 +101,19 @@ test('rotation advice never invents click-paths and warns about Supabase legacy 
   assert.match(s, /do not guess/i)
   assert.match(s, /legacy.*anon key/i)
 })
+
+test('runner flags: jobs default to 4, --only splits ids, partial runs never overwrite full ones', async () => {
+  const { parseJobs, parseOnly } = await import('../evals/run.mjs')
+  assert.equal(parseJobs(['node', 'run.mjs', 'coach']), 4)
+  assert.throws(() => parseJobs(['node', 'run.mjs', 'coach', '--jobs', '0']))
+  assert.deepEqual(parseOnly(['node', 'run.mjs', 'coach', '--only', 'a,b']), ['a', 'b'])
+  assert.equal(parseOnly(['node', 'run.mjs', 'coach']), undefined)
+  assert.throws(() => parseOnly(['node', 'run.mjs', 'coach', '--only']))
+  assert.notEqual(resultFile('coach', '2026-10-18', false, true), resultFile('coach', '2026-10-18', false, false))
+})
+
+test('detectPauses finds cards in any language and needs the symbol', () => {
+  assert.equal(detectPauses('⏸️ Pausa: Clave visible'), 1)
+  assert.equal(detectPauses('⏸️ Pause : clé visible'), 1)
+  assert.equal(detectPauses('**Pause: key in code**'), 0)
+})

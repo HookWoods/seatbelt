@@ -67,3 +67,18 @@ test('scoreCoach: recall, fatigue, multi-pause, language', () => {
   assert.equal(s.multiPause, 1)
   assert.equal(s.languageMisses, 1)
 })
+
+test('scoreCoach counts required mentions, case-insensitive, and stays null without any', () => {
+  const s = scoreCoach([
+    { expectPause: false, expectMention: 'push protection|pre-commit', output: 'I turned on Push Protection.' },
+    { expectPause: false, expectMention: 'push protection|pre-commit', output: 'Pushed.' },
+  ])
+  assert.equal(s.mentionRecall, 0.5)
+  assert.equal(scoreCoach([{ expectPause: false, output: 'ok' }]).mentionRecall, null)
+})
+
+test('looksFrench accepts French answers without a pause card and rejects English ones', async () => {
+  const { looksFrench } = await import('../evals/lib/score.mjs')
+  assert.equal(looksFrench("C'est fait : la protection est active pour les pushes."), true)
+  assert.equal(looksFrench('Done. Push protection is on for the repo.'), false)
+})

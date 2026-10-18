@@ -11,7 +11,7 @@ Construis avec l'IA comme aujourd'hui. Seatbelt fait s'arrêter l'IA aux moments
 <img src="https://img.shields.io/badge/z%C3%A9ro%20code%20%C3%A0%20conna%C3%AEtre-F5C518?style=for-the-badge&labelColor=111111" alt="Zéro code à connaître">
 <img src="https://img.shields.io/badge/marche%20sur-14%20outils%20IA-0F3D43?style=for-the-badge" alt="Marche sur 14 outils IA">
 <img src="https://img.shields.io/badge/installation-1%20lien-2EA043?style=for-the-badge" alt="Installation en un lien">
-<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/moments%20%C3%A0%20risque%20stopp%C3%A9s-21%2F21-E5484D?style=for-the-badge&labelColor=111111" alt="Moments à risque stoppés : 21 sur 21"></a>
+<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/moments%20%C3%A0%20risque%20stopp%C3%A9s-30%2F30-E5484D?style=for-the-badge&labelColor=111111" alt="Moments à risque stoppés : 30 sur 30"></a>
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -51,7 +51,7 @@ Avant la mise en ligne, tu demandes un crash test. Tu obtiens une note par domai
 <img src="docs/assets/how-it-works-fr.svg" alt="Quatre étapes sur une route : construis comme d'habitude dans Lovable, Bolt ou Claude ; Seatbelt fait une pause aux moments à risque avec deux choix clairs ; le carnet PROJECT.md suit tout en mots simples ; crash-test note l'app avant le lancement avec preuves et correctifs." width="880">
 
 1. **Tu construis comme d'habitude.** Même outil, mêmes prompts. Seatbelt est un ensemble de consignes que l'IA lit : rien de nouveau à apprendre.
-2. **Il freine aux moments à risque,** et seulement là : un secret dans le code, un changement sur la connexion, les paiements ou les données des utilisateurs, un correctif raté deux fois, un fichier devenu trop gros, une pile de tests inutiles. Tu as deux choix et le coût de chacun.
+2. **Il freine aux moments à risque,** et seulement là : une nouvelle app sans objectif clair, un nouveau service auquel s'inscrire, un secret dans le code, un changement sur la connexion, les paiements ou les données des utilisateurs, un correctif raté deux fois, un fichier devenu trop gros, une pile de tests inutiles, un changement qui peut effacer tes données, une fonction facturée à l'usage, et le jour du lancement. Tu as deux choix et le coût de chacun.
 3. **Le carnet suit tout.** `PROJECT.md` liste ce que fait ton app, où se trouve chaque chose, tes décisions, tes services et les risques acceptés. L'IA le lit en premier, et arrête d'oublier ce que tu as décidé la veille.
 4. **Le crash test note ton app** avant que de vrais utilisateurs y touchent, avec une preuve pour chaque note.
 
@@ -62,12 +62,15 @@ Avant la mise en ligne, tu demandes un crash test. Tu obtiens une note par domai
 
 | | Sans Seatbelt | Avec Seatbelt |
 |---|---|---|
-| 🔑 Clés et mots de passe | Collés dans du code que tout le monde peut lire | Rangés dans tes variables secrètes, et on t'explique comment remplacer une clé qui a fuité |
+| 🔑 Clés et mots de passe | Collés dans du code que tout le monde peut lire | Rangés dans tes variables secrètes, un contrôle qui refuse tout commit ou push qui en contient une, et on t'explique comment remplacer une clé qui a fuité |
 | 🚪 Les données de tes utilisateurs | Un utilisateur peut lire les données de tous les autres | Une règle à la porte des données, testée avec deux comptes |
 | 💳 Les paiements | Le prix vient du navigateur, donc il peut être modifié | Le prix est vérifié côté serveur |
 | 🔁 Les boucles de correctifs | « J'en corrige un, j'en casse trois » | Un point de sauvegarde avant chaque changement risqué, et un arrêt après deux correctifs ratés |
 | 🧱 Le code en vrac | Des copies de la même chose, des fichiers géants, du code « pour plus tard » | Des fichiers courts, une seule version de chaque chose, rien d'inutile |
 | 🧪 Les tests | Aucun, ou des centaines qui ne vérifient rien | Les quelques tests qui gardent la connexion, le paiement et les données |
+| 🗑️ Tes données enregistrées | « Supprime cette colonne » efface des mois de données, et l'annulation ne les ramène pas | D'abord une copie des données vérifiée, puis des changements par étapes qu'on peut défaire |
+| 💸 Factures surprises | Un bouton IA sans limite fait grimper la facture en une nuit | Le prix par usage annoncé, un plafond de dépense et une limite par utilisateur |
+| 🚀 Jour du lancement | En ligne avec les clés de test, sans sauvegarde ni page de confidentialité | Une liste de mise en ligne : d'abord les points bloquants, puis ce qu'il faut régler avant d'en parler à beaucoup de monde |
 | 🧭 Comprendre son app | « Je paie pour ne pas comprendre ma propre app » | Un carnet en langage simple que tu peux donner à un développeur |
 
 ## Installation
@@ -171,21 +174,22 @@ Seatbelt répond dans la langue dans laquelle tu écris.
 
 ## Mesuré, pas seulement décrit
 
-Premier run, 2026-10-18, Claude Sonnet via Claude Code, 3 runs par suite ([résultats complets et limites](evals/RESULTS.md)) :
+Dernier run, 2026-10-18, Claude Sonnet via Claude Code, 2 ou 3 runs par scénario ([résultats complets et limites](evals/RESULTS.md)) :
 
 | | Avec Seatbelt | Sans |
 |---|:---:|:---:|
-| Demandes risquées où l'IA s'est arrêtée et a proposé un choix **avant** d'agir | **21 / 21** | 0 / 21 |
-| Pauses sur des demandes banales (un titre, une faute de frappe, une question) | 0 / 9 | 0 / 9 |
-| Mots de jargon non expliqués, sur 30 réponses | **1** | 22 |
+| Demandes risquées où l'IA s'est arrêtée et a proposé un choix **avant** d'agir | **30 / 30** | 0 / 45 |
+| Pauses sur des demandes qui n'en avaient pas besoin | 0 / 16 | 0 / 24 |
+| Premier push : protection des secrets mise en place | **4 / 4** | 0 / 6 |
+| Mots de jargon non expliqués | **6** sur 46 réponses | 52 sur 63 réponses |
 | crash-test : failles plantées trouvées | **18 / 18** | |
 | crash-test : fausses alertes sur les apps propres | **0 / 15** | |
 
-`evals/` contient six petites apps Supabase (trois avec des failles plantées, trois versions propres) et dix scénarios pour le coach, dont des demandes en français et des demandes qui ne doivent pas déclencher de pause. Le lanceur fait tourner un vrai agent avec et sans Seatbelt, et compte les failles trouvées, les fausses alertes, les pauses au bon moment et les pauses sur des demandes banales.
+`evals/` contient six petites apps Supabase (trois avec des failles plantées, trois versions propres) et 23 scénarios pour le coach, un par moment de pause au minimum, dont des demandes en français et des demandes qui ne doivent pas déclencher de pause. Le lanceur fait tourner un vrai agent avec et sans Seatbelt, et compte les failles trouvées, les fausses alertes, les pauses au bon moment et les pauses sur des demandes banales.
 
 ```bash
 npm run eval -- crash-test --runs 3
-npm run eval -- coach --runs 3
+npm run eval -- coach --runs 2 --jobs 12   # environ 2 minutes
 SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3   # le même run sans Seatbelt
 ```
 

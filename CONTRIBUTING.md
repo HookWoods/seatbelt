@@ -27,6 +27,8 @@ npm run eval -- coach --runs 3
 npm run eval -- crash-test --runs 3
 ```
 
+Runs go 4 at a time by default (`--jobs 8` for more). While you iterate, rerun only the scenarios your change affects with `--only secret-in-code,trivial-typo`; that run is saved apart and never replaces a full one.
+
 The runner drives `claude -p` by default. Point `SEATBELT_AGENT_CMD` at another agent command to measure it, and set `SEATBELT_NO_SKILLS=1` for the baseline without Seatbelt.
 
 ## What we will not merge

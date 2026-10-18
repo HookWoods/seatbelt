@@ -133,3 +133,51 @@ test('rubric picks the lowest matching grade so repeated runs agree', () => {
 test('coach answers in the language of the latest message', () => {
   assert.match(fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8'), /language of the user's latest message/i)
 })
+
+test('coach routes moments 1 to 10, each to a sheet that exists', () => {
+  const s = fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8')
+  for (let m = 1; m <= 10; m++) {
+    const row = s.match(new RegExp(String.raw`^\| ${m} \|.*\| ` + '`(references/[a-z-]+\\.md)`' + String.raw` \|$`, 'm'))
+    assert.ok(row, `moment ${m} is missing from the table`)
+    assert.ok(fs.existsSync(`skills/seatbelt/${row[1]}`), `${row[1]} does not exist`)
+  }
+})
+
+test('every pause moment has at least one coach scenario, and pauses are balanced by quiet requests', () => {
+  const scenarios = JSON.parse(fs.readFileSync('evals/scenarios/coach.json', 'utf8'))
+  const covered = new Set(scenarios.map((s) => s.moment))
+  for (const m of [1, 2, 3, 4, 5, 7, 8, 9, 10]) assert.ok(covered.has(m), `no scenario for moment ${m}`)
+  assert.ok(scenarios.filter((s) => !s.expectPause).length >= 5, 'need requests that must not pause')
+})
+
+test('new sheets cover what non-developers usually miss', () => {
+  const read = (f) => fs.readFileSync(`skills/seatbelt/references/${f}`, 'utf8')
+  assert.match(read('idea.md'), /three questions/i)
+  assert.match(read('stack.md'), /spending cap/i)
+  assert.match(read('stack.md'), /limit each user/i)
+  assert.match(read('data.md'), /restores code, not data/i)
+  assert.match(read('data.md'), /check the copy is not empty/i)
+  assert.match(read('golive.md'), /blockers/i)
+  assert.match(read('golive.md'), /tried restoring/i)
+  assert.match(read('handoff.md'), /\.env\.example/)
+  assert.match(read('handoff.md'), /never send secret values/i)
+  for (const pattern of [/admin/i, /upload/i, /rate limit/i, /innerHTML/, /instructions/i]) {
+    assert.match(read('security.md'), pattern)
+  }
+})
+
+test('coach never claims a fix it did not see work', () => {
+  assert.match(fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8'), /never say "fixed" or "done" for something you did not see work/i)
+})
+
+test('coach looks for secrets before its first change and does not pause on public keys', () => {
+  const s = fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8')
+  assert.match(s, /before your first change, open the files that connect the app to its services/i)
+  assert.match(s, /public keys are not secrets/i)
+})
+
+test('pause card keeps its symbol and translates its words', () => {
+  const s = fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8')
+  assert.match(s, /the word "Pause" in the user's language/)
+  assert.doesNotMatch(s, /first line is exactly/)
+})

@@ -24,3 +24,9 @@ Use the plain words. Show the technical term at most once, in parentheses. Give 
 | Business rules vs services | your rules kept apart from the plumbing | standard plugs in a house | you still need to write the adapter once |
 | Technical debt | a shortcut now that you pay for later | a loan | the interest is that every future change costs more |
 | Rate limit | a cap on how often someone can knock | a queue at the door | set it too low and real users wait |
+| Production / live app | the version real users use | the shop floor, open to customers | mistakes there reach real people and real data |
+| Spending cap / budget alert | a limit on what a service can charge you | a prepaid card | some services only warn you and keep charging |
+| Export / dump | a full copy of your data in a file | photocopying the whole filing cabinet | a copy you never opened may be empty |
+| Cross-site scripting (XSS) | user text that turns into page code | a note on the noticeboard that rewires the building | it runs in other users' browsers, with their login |
+| Prompt injection | text that tries to give orders to your app's AI | a forged memo slipped into the inbox | the AI cannot always tell orders from data, so the server checks every action |
+| HTTPS | the padlock that keeps traffic private | a sealed envelope | it hides the letter, not who sent it |

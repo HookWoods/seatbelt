@@ -10,7 +10,7 @@ Build with AI like you do today. Seatbelt makes the AI stop at the risky moments
 <img src="https://img.shields.io/badge/no%20coding%20needed-F5C518?style=for-the-badge&labelColor=111111" alt="No coding needed">
 <img src="https://img.shields.io/badge/runs%20on-14%20AI%20tools-0F3D43?style=for-the-badge" alt="Runs on 14 AI tools">
 <img src="https://img.shields.io/badge/install-1%20link-2EA043?style=for-the-badge" alt="Install with one link">
-<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-21%2F21-E5484D?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 21 out of 21"></a>
+<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-30%2F30-E5484D?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 30 out of 30"></a>
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -50,7 +50,7 @@ Before you launch, you ask for a crash test. You get a grade per area, the file 
 <img src="docs/assets/how-it-works.svg" alt="Four steps on a road: build as usual in Lovable, Bolt or Claude; Seatbelt pauses at risky moments with two clear choices; the notebook PROJECT.md keeps track in plain words; crash-test grades the app before launch with proof and fixes." width="880">
 
 1. **You build as usual.** Same tool, same prompts. Seatbelt is a set of instructions the AI reads, so there is nothing new to learn.
-2. **It brakes at the risky moments,** and only there: a secret in the code, a change to login, payments or users' data, a fix that failed twice, a file that grew too big, a pile of useless tests. You get two choices and the cost of each.
+2. **It brakes at the risky moments,** and only there: a new app with no clear goal, a new service to sign up for, a secret in the code, a change to login, payments or users' data, a fix that failed twice, a file that grew too big, a pile of useless tests, a change that could erase your data, a feature that bills you per use, and launch day. You get two choices and the cost of each.
 3. **The notebook keeps track.** `PROJECT.md` lists what your app does, where things are, your decisions, your services and the risks you accepted. The AI reads it first, so it stops forgetting yesterday.
 4. **The crash test grades your app** before real users touch it, with proof for every grade.
 
@@ -61,12 +61,15 @@ Before you launch, you ask for a crash test. You get a grade per area, the file 
 
 | | Without Seatbelt | With Seatbelt |
 |---|---|---|
-| 🔑 Keys and passwords | Pasted into code anyone can read | Kept in your secret variables, and you are told how to replace a leaked one |
+| 🔑 Keys and passwords | Pasted into code anyone can read | Kept in your secret variables, a check that refuses any commit or push containing one, and how to replace a leaked one |
 | 🚪 Your users' data | One user can read everyone else's data | A rule at the data door, tested with two accounts |
 | 💳 Payments | The price comes from the browser, so it can be changed | The price is checked on the server |
 | 🔁 Fix loops | "Fix one thing, break three others" | A save point before every risky change, and a stop after two failed fixes |
 | 🧱 Messy code | Copies of the same thing, giant files, code "for later" | Small files, one version of each thing, nothing unused |
 | 🧪 Tests | None, or hundreds that check nothing | The few tests that guard login, payment and data |
+| 🗑️ Your stored data | "Delete that column" wipes months of data, and undo does not bring it back | A checked copy of the data first, then changes in steps you can undo |
+| 💸 Surprise bills | An AI button with no limit runs up the bill overnight | The price per use up front, a spending cap and a limit per user |
+| 🚀 Launch day | Live with test keys, no backups and no privacy page | A go-live list: blockers first, then what to fix before you tell many people |
 | 🧭 Understanding | "I'm paying to not understand my own app" | A plain-language notebook you can hand to a developer |
 
 ## Install
@@ -170,21 +173,22 @@ Seatbelt answers in the language you write in.
 
 ## Measured, not just described
 
-First run, 2026-10-18, Claude Sonnet through Claude Code, 3 runs per suite ([full results and limits](evals/RESULTS.md)):
+Latest run, 2026-10-18, Claude Sonnet through Claude Code, 2 or 3 runs per scenario ([full results and limits](evals/RESULTS.md)):
 
 | | With Seatbelt | Without |
 |---|:---:|:---:|
-| Risky requests where the AI stopped and offered a choice **before** acting | **21 / 21** | 0 / 21 |
-| Pauses on trivial requests (a title, a typo, a question) | 0 / 9 | 0 / 9 |
-| Jargon words left unexplained, across 30 answers | **1** | 22 |
+| Risky requests where the AI stopped and offered a choice **before** acting | **30 / 30** | 0 / 45 |
+| Pauses on requests that did not need one | 0 / 16 | 0 / 24 |
+| First push: secret protection set up | **4 / 4** | 0 / 6 |
+| Jargon words left unexplained | **6** in 46 answers | 52 in 63 answers |
 | crash-test: planted flaws caught | **18 / 18** | |
 | crash-test: false alarms on clean apps | **0 / 15** | |
 
-`evals/` holds six small Supabase apps (three with planted flaws, three clean twins) and ten coach scenarios, including requests in French and requests that must not trigger a pause. The runner drives a real agent with and without Seatbelt and counts flaws caught, false alarms, pauses at the right moment and pauses on trivial requests.
+`evals/` holds six small Supabase apps (three with planted flaws, three clean twins) and 23 coach scenarios covering every pause moment, including requests in French and requests that must not trigger a pause. The runner drives a real agent with and without Seatbelt and counts flaws caught, false alarms, pauses at the right moment and pauses on trivial requests.
 
 ```bash
 npm run eval -- crash-test --runs 3
-npm run eval -- coach --runs 3
+npm run eval -- coach --runs 2 --jobs 12   # about 2 minutes
 SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3   # the same run without Seatbelt
 ```
 
