@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 
 const INJECTION = [
   [/<!--/, 'hidden HTML comment'],
-  [/[​-‏‪-‮⁠-⁤⁦-⁩﻿]/, 'invisible or direction-changing character'],
+  [/[\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u2069\uFEFF]/, 'invisible or direction-changing character'],
   [/[A-Za-z0-9+/=_-]{120,}/, 'long encoded blob'],
   [/\b(ignore|disregard|forget|override)\b[^.\n]{0,30}\b(previous|prior|above|earlier|all)\b[^.\n]{0,20}\b(instructions|rules|messages)\b/i,
     'instruction to drop earlier instructions'],

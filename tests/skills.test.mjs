@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { validateSkill } from '../scripts/validate-skills.mjs'
 import { parseCertificate } from '../evals/lib/score.mjs'
+import { execFileSync } from 'node:child_process'
 
 test('seatbelt skill is valid and under 200 lines', () => {
   assert.deepEqual(validateSkill('skills/seatbelt', { maxLines: 200 }), [])
@@ -115,4 +116,12 @@ test('CI runs tests and the validator with pinned actions and read-only rights',
   assert.match(ci, /npm run validate/)
   assert.match(ci, /contents: read/)
   for (const uses of ci.match(/uses: .+/g)) assert.match(uses, /@[0-9a-f]{40}/, `${uses} must be pinned to a commit SHA`)
+})
+
+test('no file in the repo contains raw invisible or direction-changing characters', () => {
+  const hidden = new RegExp('[\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u2069\uFEFF]')
+  const tracked = execFileSync('git', ['ls-files'], { encoding: 'utf8' }).split('\n')
+    .filter((f) => /\.(mjs|js|ts|md|json|ya?ml|sql|jsx|svg)$/.test(f))
+  const offenders = tracked.filter((f) => hidden.test(fs.readFileSync(f, 'utf8')))
+  assert.deepEqual(offenders, [])
 })
