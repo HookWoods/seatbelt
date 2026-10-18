@@ -103,3 +103,16 @@ test('notebook keeps a file map the agent reads before searching', () => {
 test('flip test only runs on critical paths', () => {
   assert.match(fs.readFileSync('skills/seatbelt/references/tests.md', 'utf8'), /only for tests on login, payment and data/i)
 })
+
+test('the repo stays dependency-free', () => {
+  const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+  assert.deepEqual(Object.keys({ ...pkg.dependencies, ...pkg.devDependencies }), [])
+})
+
+test('CI runs tests and the validator with pinned actions and read-only rights', () => {
+  const ci = fs.readFileSync('.github/workflows/ci.yml', 'utf8')
+  assert.match(ci, /npm test/)
+  assert.match(ci, /npm run validate/)
+  assert.match(ci, /contents: read/)
+  for (const uses of ci.match(/uses: .+/g)) assert.match(uses, /@[0-9a-f]{40}/, `${uses} must be pinned to a commit SHA`)
+})
