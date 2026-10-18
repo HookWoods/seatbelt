@@ -6,8 +6,11 @@ import path from 'node:path'
 const root = 'evals/fixtures/crash-test'
 const apps = fs.existsSync(root) ? fs.readdirSync(root) : []
 
-test('six fixture apps exist', () => {
-  assert.equal(apps.length, 6)
+test('sixteen fixture apps exist, and every check from 3 to 7 has a flawed app and a clean twin', () => {
+  assert.equal(apps.length, 16)
+  for (const area of ['server', 'payments', 'backups', 'tests', 'privacy']) {
+    assert.ok(apps.includes(area + '-flawed') && apps.includes(area + '-clean'), area)
+  }
 })
 
 for (const app of apps) {

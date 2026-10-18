@@ -1,0 +1,20 @@
+{
+  "app": "payments-clean",
+  "expected": {
+    "4": "pass"
+  },
+  "evidence": [
+    {
+      "check": 4,
+      "file": "supabase/functions/create-checkout/index.ts",
+      "line": 14,
+      "contains": "const price = PRICES[plan]"
+    },
+    {
+      "check": 4,
+      "file": "supabase/functions/stripe-webhook/index.ts",
+      "line": 10,
+      "contains": "stripe.webhooks.constructEventAsync"
+    }
+  ]
+}

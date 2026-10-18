@@ -117,3 +117,10 @@ test('detectPauses finds cards in any language and needs the symbol', () => {
   assert.equal(detectPauses('⏸️ Pause : clé visible'), 1)
   assert.equal(detectPauses('**Pause: key in code**'), 0)
 })
+
+test('parseCertificate reads n/a and bold grades, and n/a counts as a pass', async () => {
+  const { gradeClass } = await import('../evals/lib/score.mjs')
+  const c = parseCertificate('| 3 | Server doors | N/A | no functions |\n| 4 | Payments | **F** | x:1 |\n| 5 | Backups | ? | none |')
+  assert.deepEqual(c.checks, { 3: 'n/a', 4: 'F', 5: '?' })
+  assert.equal(gradeClass('n/a'), 'pass')
+})

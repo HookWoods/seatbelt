@@ -1,0 +1,20 @@
+{
+  "app": "server-flawed",
+  "expected": {
+    "3": "fail"
+  },
+  "evidence": [
+    {
+      "check": 3,
+      "file": "supabase/functions/admin-delete-user/index.ts",
+      "line": 4,
+      "contains": "const { userId } = await req.json()"
+    },
+    {
+      "check": 3,
+      "file": "src/pages/Admin.jsx",
+      "line": 4,
+      "contains": "user?.email !== 'owner@example.com'"
+    }
+  ]
+}

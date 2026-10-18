@@ -24,7 +24,7 @@ For changes to how a skill behaves, run the benchmark before and after and put b
 
 ```bash
 npm run eval -- coach --runs 3
-npm run eval -- crash-test --runs 3
+npm run eval -- crash-test --runs 3 --jobs 12
 ```
 
 Runs go 4 at a time by default (`--jobs 8` for more). While you iterate, rerun only the scenarios your change affects with `--only secret-in-code,trivial-typo`; that run is saved apart and never replaces a full one.

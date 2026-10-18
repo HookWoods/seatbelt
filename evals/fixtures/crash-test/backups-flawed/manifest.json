@@ -1,0 +1,14 @@
+{
+  "app": "backups-flawed",
+  "expected": {
+    "5": "fail"
+  },
+  "evidence": [
+    {
+      "check": 5,
+      "file": "package.json",
+      "line": 8,
+      "contains": "supabase db reset --linked"
+    }
+  ]
+}

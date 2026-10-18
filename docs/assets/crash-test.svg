@@ -1,24 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="290" viewBox="0 0 880 290" role="img" aria-label="CRASH-TEST: DO NOT LAUNCH">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="482" viewBox="0 0 880 482" role="img" aria-label="CRASH-TEST, notes-app, self-checked: 2 / 7, DO NOT LAUNCH">
 <defs><pattern id="d" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
   <rect width="20" height="20" fill="#F5C518"/><rect width="10" height="20" fill="#111111"/></pattern></defs>
-<rect width="880" height="290" rx="18" fill="#0E1A1C"/>
+<rect width="880" height="482" rx="18" fill="#0E1A1C"/>
 <rect x="20" y="22" width="16" height="56" fill="url(#d)"/>
 <text x="50" y="50" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="3" fill="#EAF4F4">CRASH-TEST</text>
 <text x="50" y="74" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13" fill="#9DB7BB">notes-app  ·  self-checked</text>
-<text x="560" y="62" text-anchor="end" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#E5484D">0 / 7</text>
+<text x="560" y="62" text-anchor="end" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#E5484D">2 / 7</text>
 <g transform="rotate(-6 745 50)">
   <rect x="640" y="28" width="210" height="44" rx="6" fill="none" stroke="#E5484D" stroke-width="4"/>
   <text x="745" y="58" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="900" letter-spacing="2" fill="#E5484D">DO NOT LAUNCH</text>
 </g>
-<rect x="20" y="120" width="840" height="48" rx="10" fill="#16252A"/>
-<text x="40" y="150" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#EAF4F4">Secrets</text>
-<g transform="translate(250 144)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
-<circle cx="360" cy="144" r="16" fill="#E5484D"/><text x="360" y="150" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">F</text>
-<text x="396" y="150" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="14" fill="#9DB7BB">src/lib/ai.js:1  OpenAI key readable in the browser</text>
-<rect x="20" y="178" width="840" height="48" rx="10" fill="#16252A"/>
-<text x="40" y="208" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#EAF4F4">Data door</text>
-<g transform="translate(250 202)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
-<circle cx="360" cy="202" r="16" fill="#E5484D"/><text x="360" y="208" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">F</text>
-<text x="396" y="208" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="14" fill="#9DB7BB">001_notes.sql:10  anyone can read every note</text>
-<text x="40" y="262" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#9DB7BB">Coming next: server checks  ·  payments  ·  backups  ·  safety net  ·  privacy</text>
+<rect x="20" y="108" width="840" height="40" rx="10" fill="#16252A"/>
+<text x="40" y="134" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Secrets</text>
+<g transform="translate(232 128)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="128" r="15" fill="#E5484D"/><text x="360" y="134" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">F</text>
+<text x="396" y="133" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13.5" fill="#9DB7BB">src/lib/ai.js:1  OpenAI key readable in the browser</text>
+<rect x="20" y="154" width="840" height="40" rx="10" fill="#16252A"/>
+<text x="40" y="180" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Data door</text>
+<g transform="translate(232 174)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="174" r="15" fill="#E5484D"/><text x="360" y="180" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">F</text>
+<text x="396" y="179" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13.5" fill="#9DB7BB">001_notes.sql:10  anyone can read every note</text>
+<rect x="20" y="200" width="840" height="40" rx="10" fill="#16252A"/>
+<text x="40" y="226" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Server doors</text>
+<g transform="translate(232 220)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#E5484D"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="220" r="15" fill="#E5484D"/><text x="360" y="226" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">D</text>
+<text x="396" y="225" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13.5" fill="#9DB7BB">export/index.ts:12  any user can export all notes</text>
+<rect x="20" y="246" width="840" height="40" rx="10" fill="#16252A"/>
+<text x="40" y="272" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Payments</text>
+<g transform="translate(232 266)"><circle cx="0" cy="0" r="5.5" fill="#2C4248"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<rect x="338" y="255" width="44" height="22" rx="11" fill="#2C4248"/><text x="360" y="271" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#CFE3E5">n/a</text>
+<text x="396" y="271" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13.5" fill="#9DB7BB">no payment code in the app</text>
+<rect x="20" y="292" width="840" height="40" rx="10" fill="#16252A"/>
+<text x="40" y="318" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Backups</text>
+<g transform="translate(232 312)"><circle cx="0" cy="0" r="5.5" fill="#2C4248"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="312" r="15" fill="#F2A93B"/><text x="360" y="318" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#111111">?</text>
+<text x="396" y="317" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13.5" fill="#9DB7BB">not in the repo, dashboard not pasted</text>
+<rect x="20" y="338" width="840" height="40" rx="10" fill="#16252A"/>
+<text x="40" y="364" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Safety net</text>
+<g transform="translate(232 358)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#E5484D"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="358" r="15" fill="#E5484D"/><text x="360" y="364" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">D</text>
+<text x="396" y="363" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13.5" fill="#9DB7BB">no test covers login or access to notes</text>
+<rect x="20" y="384" width="840" height="40" rx="10" fill="#16252A"/>
+<text x="40" y="410" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Privacy</text>
+<g transform="translate(232 404)"><circle cx="0" cy="0" r="5.5" fill="#2EA043"/><circle cx="16" cy="0" r="5.5" fill="#2EA043"/><circle cx="32" cy="0" r="5.5" fill="#2EA043"/><circle cx="48" cy="0" r="5.5" fill="#2EA043"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="404" r="15" fill="#2EA043"/><text x="360" y="410" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">B</text>
+<text x="396" y="409" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13.5" fill="#9DB7BB">privacy page found, no retention period</text>
+<text x="40" y="460" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" fill="#9DB7BB">n/a counts as passed  ·  ? is never a pass  ·  3 cheapest fixes below the grade</text>
 </svg>

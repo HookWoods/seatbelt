@@ -38,3 +38,6 @@ Create two test accounts. Log in as the first and create a record. Log in as the
 
 ## Evidence
 `file:line` of the table or policy, or "from pasted SQL".
+
+## Fix prompt example
+"Write a new migration for the notes table: enable row level security, drop the policy that uses `using (true)`, and add one policy per action (select, insert, update, delete) that only allows rows where auth.uid() equals user_id. Then tell me how to test it with two accounts."

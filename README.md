@@ -43,7 +43,7 @@ You paste a payment key in the chat. Without Seatbelt, the AI drops it into a pa
 
 Before you launch, you ask for a crash test. You get a grade per area, the file and line as proof, and the three cheapest fixes, ready to paste:
 
-<img src="docs/assets/crash-test.svg" alt="Crash-test dashboard for notes-app, self-checked, 0 out of 7, stamped DO NOT LAUNCH. Secrets: grade F, an OpenAI key is readable in the browser at src/lib/ai.js line 1. Data door: grade F, anyone can read every note, 001_notes.sql line 10. Coming next: server checks, payments, backups, safety net, privacy." width="880">
+<img src="docs/assets/crash-test.svg" alt="Crash-test dashboard for notes-app, self-checked, 2 out of 7, stamped DO NOT LAUNCH. Secrets: F, an OpenAI key is readable in the browser. Data door: F, anyone can read every note. Server doors: D, any user can export all notes. Payments: n/a, no payment code. Backups: ?, not in the repo and the dashboard was not pasted. Safety net: D, no test covers login or access to notes. Privacy: B, privacy page found, no retention period." width="880">
 
 ## How it works
 
@@ -175,7 +175,7 @@ No commands to learn. Build as usual, and ask in your own words when you want so
 Seatbelt answers in the language you write in.
 
 > [!IMPORTANT]
-> **Honest limits.** Skills are instructions the AI follows: they make good behavior the default, they cannot force it. crash-test reports what the AI could verify in your files and in what you pasted. It is not a security audit or a certification, and its badge always says "self-checked". Settings that live only in a dashboard (Supabase rules, backups) are graded "?" until you paste them, and "?" never counts as a pass. This first version grades secrets and the data door for Supabase apps; server checks, payments, backups, a test safety net and privacy come next.
+> **Honest limits.** Skills are instructions the AI follows: they make good behavior the default, they cannot force it. crash-test reports what the AI could verify in your files and in what you pasted. It is not a security audit or a certification, and its badge always says "self-checked". Settings that live only in a dashboard (Supabase rules, backups) are graded "?" until you paste them, and "?" never counts as a pass. crash-test runs seven checks on any app it can read; its stack sheet for now is Supabase, so other stacks get the general checks without stack-specific traps.
 
 ## Measured, not just described
 
@@ -187,13 +187,13 @@ We sent the same requests to the same AI (Claude Sonnet 5.5 in Claude Code, defa
 | **🤫 It stays quiet on simple requests**<br>8 harmless requests, like "make the title bigger", "fix a typo" or "add a search box". A good coach does not interrupt for these. *Lower is better.* | **0 / 24**<br>needless stops | 0 / 24 |
 | **🔐 It guards your keys when you upload your code**<br>"Put my project on GitHub" and the same in French for GitLab. Did the AI set up a check that refuses to upload a secret key? | **6 / 6**<br>answers set it up | 0 / 6 |
 | **💬 It speaks your language, not jargon**<br>Technical words like "RLS", "webhook" or "migration" used without plain words to explain them. *Lower is better.* | **12**<br>in 69 answers | 52<br>in 69 answers |
-| **🔎 crash-test finds real problems**<br>3 small test apps with planted problems: an admin key left in the code, or a database anyone can read. Did the grade catch every one? | **18 / 18**<br>problems caught | no equivalent |
-| **🐺 crash-test does not cry wolf**<br>3 clean copies of the same apps, with the problems fixed. Did it wrongly fail any of them? *Lower is better.* | **0 / 15**<br>false alarms | no equivalent |
+| **🔎 crash-test finds real problems**<br>8 small test apps with planted problems, at least one for each of the 7 checks: an admin key left in the code, a database anyone can read, a price the buyer can change, a deploy that wipes the data, tests that check nothing, a password written to the logs... Did the grade catch every one? | **33 / 33**<br>problems caught | no equivalent |
+| **🐺 crash-test does not cry wolf**<br>8 clean copies of the same apps, with the problems fixed. Did it wrongly fail any of them? *Lower is better.* | **0 / 30**<br>false alarms | no equivalent |
 
-The test apps and requests live in `evals/`: six small Supabase apps and 23 requests that cover every pause moment, three of them in French. Anyone can run them again with the commands below.
+The test apps and requests live in `evals/`: 16 small Supabase apps and 23 requests that cover every pause moment, three of them in French. Anyone can run them again with the commands below.
 
 ```bash
-npm run eval -- crash-test --runs 3
+npm run eval -- crash-test --runs 3 --jobs 12
 npm run eval -- coach --runs 3 --jobs 12   # about 2 minutes
 SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3   # the same run without Seatbelt
 ```

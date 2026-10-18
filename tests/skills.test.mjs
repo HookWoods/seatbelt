@@ -43,7 +43,7 @@ test('certificate example parses with the eval scorer', () => {
   const t = fs.readFileSync('skills/crash-test/templates/certificate.md', 'utf8')
   const example = t.split('```')[1]
   const c = parseCertificate(example)
-  assert.deepEqual(Object.keys(c.checks), ['1', '2'])
+  assert.deepEqual(Object.keys(c.checks), ['1', '2', '3', '4', '5', '6', '7'])
   assert.equal(c.doNotLaunch, true)
 })
 
@@ -180,4 +180,17 @@ test('pause card keeps its symbol and translates its words', () => {
   const s = fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8')
   assert.match(s, /the word "Pause" in the user's language/)
   assert.doesNotMatch(s, /first line is exactly/)
+})
+
+test('crash-test runs all seven checks, each from a sheet with a rubric section', () => {
+  const skill = fs.readFileSync('skills/crash-test/SKILL.md', 'utf8')
+  const rubric = fs.readFileSync('skills/crash-test/rubric.md', 'utf8')
+  const sheets = fs.readdirSync('skills/crash-test/checks').sort()
+  assert.equal(sheets.length, 7)
+  sheets.forEach((sheet, i) => {
+    assert.match(skill, new RegExp(`checks/${sheet}`), `${sheet} is not routed`)
+    assert.match(rubric, new RegExp(`^## Check ${i + 1}: `, 'm'), `rubric has no check ${i + 1}`)
+    assert.match(fs.readFileSync(`skills/crash-test/checks/${sheet}`, 'utf8'), /## Fix prompt example/)
+  })
+  assert.doesNotMatch(skill, /not covered yet/i)
 })

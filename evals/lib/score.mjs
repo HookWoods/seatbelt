@@ -26,7 +26,7 @@ export function jargonViolations(text) {
 }
 
 export function gradeClass(grade) {
-  if (grade === 'A' || grade === 'B') return 'pass'
+  if (grade === 'A' || grade === 'B' || grade === 'n/a') return 'pass'
   if (['C', 'D', 'E', 'F'].includes(grade)) return 'fail'
   if (grade === '?') return 'unknown'
   return 'missing'
@@ -34,7 +34,10 @@ export function gradeClass(grade) {
 
 export function parseCertificate(text) {
   const checks = {}
-  for (const m of text.matchAll(/^\|\s*(\d)\s*\|[^|\n]*\|\s*([A-F?])\s*\|/gm)) checks[m[1]] = m[2]
+  // A grade may be bold, and "n/a" (check does not apply) may be written in any case.
+  for (const m of text.matchAll(/^\|\s*(\d)\s*\|[^|\n]*\|\s*\**([A-F?]|[nN]\/[aA])\**\s*\|/gm)) {
+    checks[m[1]] = m[2].length === 3 ? 'n/a' : m[2]
+  }
   return { checks, doNotLaunch: /⛔/.test(text) }
 }
 

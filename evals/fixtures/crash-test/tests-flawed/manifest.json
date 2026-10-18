@@ -1,0 +1,20 @@
+{
+  "app": "tests-flawed",
+  "expected": {
+    "6": "fail"
+  },
+  "evidence": [
+    {
+      "check": 6,
+      "file": "src/__tests__/app.test.js",
+      "line": 5,
+      "contains": "expect(true).toBe(true)"
+    },
+    {
+      "check": 6,
+      "file": ".github/workflows/ci.yml",
+      "line": 10,
+      "contains": "npm test || true"
+    }
+  ]
+}

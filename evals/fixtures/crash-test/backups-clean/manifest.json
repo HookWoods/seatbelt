@@ -1,0 +1,20 @@
+{
+  "app": "backups-clean",
+  "expected": {
+    "5": "pass"
+  },
+  "evidence": [
+    {
+      "check": 5,
+      "file": ".github/workflows/backup.yml",
+      "line": 4,
+      "contains": "cron: '0 2 * * *'"
+    },
+    {
+      "check": 5,
+      "file": "PROJECT.md",
+      "line": 9,
+      "contains": "2026-09-30"
+    }
+  ]
+}

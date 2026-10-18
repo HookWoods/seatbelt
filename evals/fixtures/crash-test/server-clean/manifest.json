@@ -1,0 +1,20 @@
+{
+  "app": "server-clean",
+  "expected": {
+    "3": "pass"
+  },
+  "evidence": [
+    {
+      "check": 3,
+      "file": "supabase/functions/admin-delete-user/index.ts",
+      "line": 11,
+      "contains": "await admin.auth.getUser(token)"
+    },
+    {
+      "check": 3,
+      "file": "supabase/functions/admin-delete-user/index.ts",
+      "line": 15,
+      "contains": "if (!profile?.is_admin)"
+    }
+  ]
+}

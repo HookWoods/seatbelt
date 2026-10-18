@@ -1,28 +1,38 @@
 # Benchmark results
 
-Run on 2026-10-18 with Claude Code 2.1.299 in print mode (`claude -p`), model Claude Sonnet 5.5 (`claude-sonnet-5-5`, chosen with `--model sonnet`) at Claude Code's default effort (no `--effort` flag), a clean configuration folder (no personal plugins, hooks or memory, claude.ai skill sync turned off), tools limited to Read, Grep, Glob and Skill, and a $1 budget cap per run.
+Run on 2026-10-18 with Claude Code 2.1.299 in print mode (`claude -p`), model Claude Sonnet 5.5 (`claude-sonnet-5-5`, chosen with `--model sonnet`) at Claude Code's default effort (no `--effort` flag), a clean configuration folder (no personal plugins, hooks or memory, claude.ai skill sync turned off), tools limited to Read, Grep, Glob and Skill, and a budget cap per run of $1 for the coach and $2 for crash-test (seven checks read more files).
 
 Reproduce with:
 
 ```bash
-npm run eval -- crash-test --runs 3
+npm run eval -- crash-test --runs 3 --jobs 12
 npm run eval -- coach --runs 3 --jobs 12
 SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3
 ```
 
-With `--jobs 12` the 69 coach answers take about 2 minutes.
+With `--jobs 12` the 69 coach answers take about 2 minutes, and the 48 crash-test certificates about 3.
 
-## crash-test (6 apps × 3 runs = 36 graded checks)
+## crash-test (16 apps × 3 runs = 66 graded checks)
+
+Six notes apps test checks 1 and 2 (three with planted flaws, three clean twins). Ten more apps test checks 3 to 7, one app with a planted flaw and one clean twin per check:
+
+| Check | Planted flaw | Clean twin |
+|---|---|---|
+| 3. Server doors | An admin function deletes any user from an id in the request, with no login check; the admin page is guarded only by an email check in the browser | The function checks the caller's login, reads `is_admin` from the database, and validates the id |
+| 4. Payments | The price comes from the browser, the payment notification is trusted without its signature, and the success page upgrades the plan | Price from a server-side list, signature verified, plan changed only by the notification, same event handled once, refunds downgrade |
+| 5. Backups | The deploy script resets the live database (`db reset --linked`) | A nightly export job, and a dated restore test in PROJECT.md |
+| 6. Safety net | A test that checks `true`, a snapshot, and a CI step that ignores failures | Tests that user B cannot read user A's notes and that a logged-out visitor sees nothing, run on every push |
+| 7. Privacy | The sign-up page logs the password, trackers load before consent, and "Delete my account" only logs out | A privacy page with retention, no trackers, and a deletion that removes notes, photos and the login |
 
 | Measure | Result |
 |---|---|
-| Planted flaws graded as failing | 18 / 18 |
-| False alarms on the clean twins | 0 / 15 |
+| Planted flaws graded as failing | 33 / 33 |
+| False alarms on the clean twins | 0 / 30 |
 | "?" when the database rules live only in the dashboard | 3 / 3 |
-| Same pass or fail verdict for a check across the 3 runs | 12 / 12 |
-| Same letter grade for a check across the 3 runs | 10 / 12 |
+| Same pass or fail verdict for a check across the 3 runs | 22 / 22 |
+| Same letter grade for a check across the 3 runs | 20 / 22 |
 
-The two letter changes: clean twin 2, check 1 graded B once and A twice, and an open insert rule graded C once and F twice (flawed app 3, check 2). Both stayed on the same side of pass or fail. The rubric now says to pick the lowest grade that matches.
+The two letter changes stayed on the passing side: clean twin 3, check 1 graded A once and B twice, and the clean server app graded A once and B twice.
 
 ## Coach (23 scenarios)
 
@@ -50,8 +60,7 @@ The first run of the new instructions scored 41 / 45. Reading the answers showed
 
 ## Known limits of this run
 
-- Small sample: 6 apps, 23 scenarios, 3 runs each. Treat the numbers as a measurement, not a guarantee.
+- Small sample: 16 apps, 23 scenarios, 3 runs each. Each check from 3 to 7 has one flawed app and one clean twin, so a flaw written differently could still be missed. Treat the numbers as a measurement, not a guarantee.
 - Writing files was not allowed in either arm, so the runs measure what the AI says and plans, not the files it would change.
 - The first crash-test and coach runs synced the account's claude.ai skills and plugins into the clean folder, and some English requests were answered in French. Sync is now off for benchmark runs, and the coach is told to answer in the language of the latest message. A few English requests were still answered in French in the tuning runs; the account's language preference is the likely cause.
-- The crash-test numbers come from the 0.1 run; crash-test did not change since.
 - One model (Claude Sonnet 5.5) at one effort level (the default). Other models and other tools (Lovable, Bolt, Replit, Cursor) are not measured yet.

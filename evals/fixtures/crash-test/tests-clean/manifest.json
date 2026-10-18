@@ -1,0 +1,20 @@
+{
+  "app": "tests-clean",
+  "expected": {
+    "6": "pass"
+  },
+  "evidence": [
+    {
+      "check": 6,
+      "file": "tests/notes-access.test.js",
+      "line": 19,
+      "contains": "it('hides the note from another user'"
+    },
+    {
+      "check": 6,
+      "file": ".github/workflows/ci.yml",
+      "line": 12,
+      "contains": "- run: npm test"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "app": "privacy-clean",
+  "expected": {
+    "7": "pass"
+  },
+  "evidence": [
+    {
+      "check": 7,
+      "file": "src/pages/Privacy.jsx",
+      "line": 11,
+      "contains": "How long we keep it"
+    },
+    {
+      "check": 7,
+      "file": "supabase/functions/delete-account/index.ts",
+      "line": 10,
+      "contains": "storage.from('avatars').remove"
+    }
+  ]
+}

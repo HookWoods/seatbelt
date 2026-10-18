@@ -8,7 +8,7 @@ const agentCmd = `"${process.execPath}" "${path.resolve('tests/fixtures/stub-age
 
 test('runCrashTest runs every fixture and scores it', async () => {
   const { results, score } = await runCrashTest({ agentCmd, runs: 1, jobs: 4 })
-  assert.equal(results.length, 6)
+  assert.equal(results.length, 16)
   assert.equal(score.recall, 1)            // stub fails everything: all flaws caught
   assert.equal(score.falsePositiveRate, 1) // ...and every clean check is a false positive
 })

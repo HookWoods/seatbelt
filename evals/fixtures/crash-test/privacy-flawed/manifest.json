@@ -1,0 +1,26 @@
+{
+  "app": "privacy-flawed",
+  "expected": {
+    "7": "fail"
+  },
+  "evidence": [
+    {
+      "check": 7,
+      "file": "src/pages/Signup.jsx",
+      "line": 10,
+      "contains": "console.log('signup', email, password)"
+    },
+    {
+      "check": 7,
+      "file": "src/pages/Settings.jsx",
+      "line": 6,
+      "contains": "await supabase.auth.signOut()"
+    },
+    {
+      "check": 7,
+      "file": "index.html",
+      "line": 6,
+      "contains": "googletagmanager.com/gtag/js"
+    }
+  ]
+}

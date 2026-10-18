@@ -1,0 +1,26 @@
+{
+  "app": "payments-flawed",
+  "expected": {
+    "4": "fail"
+  },
+  "evidence": [
+    {
+      "check": 4,
+      "file": "supabase/functions/create-checkout/index.ts",
+      "line": 9,
+      "contains": "unit_amount: amount"
+    },
+    {
+      "check": 4,
+      "file": "supabase/functions/stripe-webhook/index.ts",
+      "line": 6,
+      "contains": "JSON.parse(await req.text())"
+    },
+    {
+      "check": 4,
+      "file": "src/pages/Success.jsx",
+      "line": 8,
+      "contains": ".update({ plan })"
+    }
+  ]
+}
