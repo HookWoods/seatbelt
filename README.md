@@ -8,7 +8,7 @@ Build with AI like you do today. Seatbelt makes the AI stop at the risky moments
 
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1F6F78?style=for-the-badge" alt="MIT license"></a>
 <img src="https://img.shields.io/badge/no%20coding%20needed-F5C518?style=for-the-badge&labelColor=111111" alt="No coding needed">
-<img src="https://img.shields.io/badge/runs%20on-6%20AI%20builders-0F3D43?style=for-the-badge" alt="Runs on 6 AI builders">
+<img src="https://img.shields.io/badge/runs%20on-14%20AI%20tools-0F3D43?style=for-the-badge" alt="Runs on 14 AI tools">
 <img src="https://img.shields.io/badge/install-1%20link-2EA043?style=for-the-badge" alt="Install with one link">
 <a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-21%2F21-E5484D?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 21 out of 21"></a>
 
@@ -107,12 +107,41 @@ Click **Use a skill**, paste `https://github.com/HookWoods/seatbelt/tree/main/sk
 </details>
 
 <details>
-<summary><b>Cursor, GitHub Copilot, Codex, Gemini CLI, OpenCode</b></summary>
+<summary><b>Gemini CLI</b></summary>
+
+```bash
+gemini extensions install https://github.com/HookWoods/seatbelt
+```
+The extension loads the coach in every session; no need for the three lines.
+</details>
+
+<details>
+<summary><b>GitHub Copilot CLI</b></summary>
+
+```bash
+copilot plugin marketplace add HookWoods/seatbelt
+copilot plugin install seatbelt@seatbelt
+```
+</details>
+
+<details>
+<summary><b>Kimi Code, Devin, Factory Droid, Qwen Code</b></summary>
+
+```bash
+/plugins install https://github.com/HookWoods/seatbelt                                  # Kimi Code (starts every session with the coach)
+devin plugins install HookWoods/seatbelt                                                  # Devin CLI
+droid plugin marketplace add https://github.com/HookWoods/seatbelt && droid plugin install seatbelt@seatbelt   # Factory Droid
+qwen extensions install HookWoods/seatbelt                                                # Qwen Code
+```
+</details>
+
+<details>
+<summary><b>Cursor, Codex, OpenCode and any tool that reads skill folders</b></summary>
 
 ```bash
 npx skills add HookWoods/seatbelt
 ```
-Or copy the two folders from `skills/` into `.agents/skills/` in your project.
+Or copy the two folders from `skills/` into `.agents/skills/` in your project, then paste the three lines below into `AGENTS.md`.
 </details>
 
 **The three lines.** Paste them into your project Knowledge (Lovable, Bolt) or into `AGENTS.md` / `CLAUDE.md`, so the coach rides along on every request:

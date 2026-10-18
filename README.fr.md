@@ -9,7 +9,7 @@ Construis avec l'IA comme aujourd'hui. Seatbelt fait s'arrêter l'IA aux moments
 
 <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-1F6F78?style=for-the-badge" alt="Licence MIT"></a>
 <img src="https://img.shields.io/badge/z%C3%A9ro%20code%20%C3%A0%20conna%C3%AEtre-F5C518?style=for-the-badge&labelColor=111111" alt="Zéro code à connaître">
-<img src="https://img.shields.io/badge/marche%20sur-6%20outils%20IA-0F3D43?style=for-the-badge" alt="Marche sur 6 outils IA">
+<img src="https://img.shields.io/badge/marche%20sur-14%20outils%20IA-0F3D43?style=for-the-badge" alt="Marche sur 14 outils IA">
 <img src="https://img.shields.io/badge/installation-1%20lien-2EA043?style=for-the-badge" alt="Installation en un lien">
 <a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/moments%20%C3%A0%20risque%20stopp%C3%A9s-21%2F21-E5484D?style=for-the-badge&labelColor=111111" alt="Moments à risque stoppés : 21 sur 21"></a>
 
@@ -108,12 +108,41 @@ Clique sur **Use a skill**, colle `https://github.com/HookWoods/seatbelt/tree/ma
 </details>
 
 <details>
-<summary><b>Cursor, GitHub Copilot, Codex, Gemini CLI, OpenCode</b></summary>
+<summary><b>Gemini CLI</b></summary>
+
+```bash
+gemini extensions install https://github.com/HookWoods/seatbelt
+```
+L'extension charge le coach à chaque session ; pas besoin des trois lignes.
+</details>
+
+<details>
+<summary><b>GitHub Copilot CLI</b></summary>
+
+```bash
+copilot plugin marketplace add HookWoods/seatbelt
+copilot plugin install seatbelt@seatbelt
+```
+</details>
+
+<details>
+<summary><b>Kimi Code, Devin, Factory Droid, Qwen Code</b></summary>
+
+```bash
+/plugins install https://github.com/HookWoods/seatbelt                                  # Kimi Code (lance le coach à chaque session)
+devin plugins install HookWoods/seatbelt                                                  # Devin CLI
+droid plugin marketplace add https://github.com/HookWoods/seatbelt && droid plugin install seatbelt@seatbelt   # Factory Droid
+qwen extensions install HookWoods/seatbelt                                                # Qwen Code
+```
+</details>
+
+<details>
+<summary><b>Cursor, Codex, OpenCode et tout outil qui lit les dossiers de skills</b></summary>
 
 ```bash
 npx skills add HookWoods/seatbelt
 ```
-Ou copie les deux dossiers de `skills/` dans `.agents/skills/` de ton projet.
+Ou copie les deux dossiers de `skills/` dans `.agents/skills/` de ton projet, puis colle les trois lignes ci-dessous dans `AGENTS.md`.
 </details>
 
 **Les trois lignes.** Colle-les dans la Knowledge de ton projet (Lovable, Bolt) ou dans `AGENTS.md` / `CLAUDE.md`, pour que le coach t'accompagne à chaque demande :

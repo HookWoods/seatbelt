@@ -1,0 +1,43 @@
+name: Platform report
+description: Seatbelt did something wrong, or did not install, in your AI builder.
+labels: [platform-report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Reports like this become new test scenarios, so the same problem cannot come back.
+        **Never paste a real key, password or token.** Replace it with `REDACTED`.
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Where did it happen?
+      options: [Lovable, Bolt, Replit, Claude Code, Claude Desktop or Claude.ai, Cursor, GitHub Copilot, Codex, Gemini CLI, Other]
+    validations:
+      required: true
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Which part?
+      options: [The coach (seatbelt), The grade (crash-test), Installing]
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: What you asked
+      description: The message you sent to the AI, as close as possible to the original.
+    validations:
+      required: true
+  - type: textarea
+    id: answer
+    attributes:
+      label: What the AI answered
+      description: Paste the answer, or a screenshot.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true

@@ -1,0 +1,1 @@
+@./skills/seatbelt/SKILL.md

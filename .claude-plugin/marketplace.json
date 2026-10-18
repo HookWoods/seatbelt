@@ -1,11 +1,20 @@
 {
   "name": "seatbelt",
-  "owner": { "name": "Hugo Planque" },
+  "description": "Seatbelt skills for people who build apps with AI",
+  "owner": {
+    "name": "Hugo Planque",
+    "url": "https://github.com/HookWoods"
+  },
   "plugins": [
     {
       "name": "seatbelt",
+      "description": "A patient senior developer for people who build apps with AI: safe defaults, plain-language pauses at risky moments, a project notebook, and a crash-test readiness grade.",
+      "version": "0.1.0",
       "source": "./",
-      "description": "Coach and crash-test skills for people who build apps with AI."
+      "author": {
+        "name": "Hugo Planque",
+        "url": "https://github.com/HookWoods"
+      }
     }
   ]
 }

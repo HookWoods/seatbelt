@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security problem privately
+    url: https://github.com/HookWoods/seatbelt/security/advisories/new
+    about: Skill text that could make an agent leak a secret or weaken a rule. Please do not open a public issue.

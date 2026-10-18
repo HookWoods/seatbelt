@@ -1,0 +1,42 @@
+{
+  "name": "seatbelt",
+  "version": "0.1.0",
+  "description": "A patient senior developer for people who build apps with AI: safe defaults, plain-language pauses at risky moments, a project notebook, and a crash-test readiness grade.",
+  "author": {
+    "name": "Hugo Planque",
+    "url": "https://github.com/HookWoods"
+  },
+  "homepage": "https://github.com/HookWoods/seatbelt",
+  "repository": "https://github.com/HookWoods/seatbelt",
+  "license": "MIT",
+  "keywords": [
+    "vibe-coding",
+    "non-developers",
+    "lovable",
+    "bolt",
+    "replit",
+    "supabase",
+    "security",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Seatbelt",
+    "shortDescription": "Safe, clean AI-built apps for people who do not code",
+    "longDescription": "Seatbelt makes the agent pause at risky moments (secrets, login, payments, users' data, repeated failed fixes), explain every choice in plain words, keep a project notebook, and grade how ready the app is before launch.",
+    "developerName": "Hugo Planque",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Is my app ready to launch? Run crash-test.",
+      "Add login to my app.",
+      "Explain what you just changed, in plain words."
+    ],
+    "websiteURL": "https://github.com/HookWoods/seatbelt",
+    "brandColor": "#1F6F78"
+  }
+}

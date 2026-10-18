@@ -1,0 +1,23 @@
+{
+  "name": "seatbelt",
+  "version": "0.1.0",
+  "description": "A patient senior developer for people who build apps with AI: safe defaults, plain-language pauses at risky moments, a project notebook, and a crash-test readiness grade.",
+  "author": {
+    "name": "Hugo Planque",
+    "url": "https://github.com/HookWoods"
+  },
+  "homepage": "https://github.com/HookWoods/seatbelt",
+  "repository": "https://github.com/HookWoods/seatbelt",
+  "license": "MIT",
+  "keywords": [
+    "vibe-coding",
+    "non-developers",
+    "lovable",
+    "bolt",
+    "replit",
+    "supabase",
+    "security",
+    "skills"
+  ],
+  "skills": "./skills/"
+}
