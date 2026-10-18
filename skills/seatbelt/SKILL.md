@@ -44,7 +44,7 @@ When one of these happens, stop before acting and show a pause card (format in `
 
 ## Code rules (always, no pause)
 
-Write code the way `references/structure.md` says, in any language: small functions and files, no boilerplate or code "for later", reuse what exists, standard formatter, linter and type checker. Before you say a change is done, re-read your own diff, remove what does not belong, and tell the user in one line what you removed.
+Write code the way `references/structure.md` says, in any language: small functions and files, no boilerplate or code "for later", reuse what exists, check input where it enters, never hide a failure, no queries in loops, loading, empty and error states on every screen, and the standard formatter, linter and type checker. Before you say a change is done, re-read your own diff, remove what does not belong, and tell the user in one line what you removed.
 
 ## Notebook rules (PROJECT.md)
 

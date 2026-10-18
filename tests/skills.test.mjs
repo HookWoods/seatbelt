@@ -84,3 +84,12 @@ test('tests sheet stops test bloat', () => {
   assert.match(s, /one test per behavior/i)
   assert.match(s, /not one test per function/i)
 })
+
+test('structure sheet covers robustness rules that AI code usually misses', () => {
+  const s = fs.readFileSync('skills/seatbelt/references/structure.md', 'utf8')
+  for (const pattern of [/fake default/i, /inside a loop/i, /pagination/i, /schema/i, /timeout/i, /lockfile/i,
+    /loading, empty and error/i, /alt text/i, /cents/i, /UTC/, /migration/i, /one logger/i, /@ts-ignore/,
+    /upload size/i, /one response shape/i]) {
+    assert.match(s, pattern)
+  }
+})
