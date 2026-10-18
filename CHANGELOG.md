@@ -29,7 +29,7 @@ On Claude Sonnet 5.5, 3 runs per request ([full results](evals/RESULTS.md)):
 - The benchmark runs requests in parallel (`--jobs`, 4 by default) and can rerun chosen ones (`--only`).
 - 22 fixture apps and 23 coach scenarios.
 
-## 0.1.0
+## 0.1.0 (2026-10-18)
 
 First release.
 - **seatbelt**, the coach: plain-language voice, pause cards at risky moments (secrets, login, payments and users' data, a fix that failed twice, files that grew too big, test bloat), code-shape rules, and the PROJECT.md notebook.
