@@ -93,3 +93,13 @@ test('structure sheet covers robustness rules that AI code usually misses', () =
     assert.match(s, pattern)
   }
 })
+
+test('notebook keeps a file map the agent reads before searching', () => {
+  const t = fs.readFileSync('skills/seatbelt/templates/PROJECT.md', 'utf8')
+  assert.match(t, /\| File or folder \| What it does \|/)
+  assert.match(fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8'), /read "Where things are" before searching/i)
+})
+
+test('flip test only runs on critical paths', () => {
+  assert.match(fs.readFileSync('skills/seatbelt/references/tests.md', 'utf8'), /only for tests on login, payment and data/i)
+})

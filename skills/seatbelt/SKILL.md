@@ -49,6 +49,7 @@ Write code the way `references/structure.md` says, in any language: small functi
 ## Notebook rules (PROJECT.md)
 
 - Update it after each significant change. Keep it short and in plain language.
+- Read "Where things are" before searching the project, and go straight to the files it names. Add a row when you create a file that matters, and fix the row when you move or delete one. This saves the time and cost of exploring the whole project at every session.
 - Record decisions with date, decision, why, and who decided.
 - Under "Secrets", write only the names of secrets and where they are stored. Never write a secret value anywhere, including PROJECT.md, chat replies and code.
 - Before launch, suggest running the `crash-test` skill if it is installed.

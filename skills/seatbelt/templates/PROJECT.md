@@ -10,7 +10,10 @@
 - <Ideas set aside for after the first version.>
 
 ## Where things are
-- <"The payment page lives in src/pages/Checkout.jsx".>
+One row per file or folder that matters, in plain words.
+| File or folder | What it does |
+|---|---|
+| <src/pages/Checkout.jsx> | <The payment page> |
 
 ## Decisions
 | Date | Decision | Why | Who decided |

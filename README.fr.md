@@ -8,17 +8,10 @@ Seatbelt transforme l'IA avec laquelle tu construis en développeur senior patie
 > "Try to fix 1 thing and break 3 others." (r/lovable)
 > "You don't have backups, you have hope." (r/vibecoding)
 
-## Ton projet ne devrait pas ressembler à ça
-
-![Une supercar assemblée avec des pièces de plusieurs marques qui ne vont pas ensemble](docs/assets/before-frankencar.png)
-
-Des pièces de cinq constructeurs différents, boulonnées ensemble. Elle roule, jusqu'au jour où elle ne roule plus. La plupart des apps construites avec l'IA ressemblent à ça sous le capot, parce que chaque prompt ajoute une pièce qui ne va pas avec les autres.
-
-## Avec Seatbelt, voici la vision finale
-
-![Une voiture propre et complète, d'une seule marque](docs/assets/after-clean-car.png)
-
-La même voiture construite sur un seul design : les pièces s'emboîtent et les freins marchent.
+| Ton projet aujourd'hui | Avec Seatbelt |
+|:---:|:---:|
+| <img src="docs/assets/before-frankencar.png" alt="Une voiture de sport assemblée avec des pièces qui ne vont pas ensemble" width="420"> | <img src="docs/assets/after-clean-car.png" alt="La même voiture construite sur un seul design" width="420"> |
+| Des pièces de plusieurs constructeurs, scotchées ensemble. Elle roule, jusqu'au jour où elle ne roule plus. Chaque prompt ajoute une pièce qui ne va pas avec les autres. | Un seul design. Les pièces s'emboîtent et les freins marchent. |
 
 ## Ce que tu obtiens
 - `seatbelt` (coach) : s'arrête avant les changements risqués (un secret dans ton code, la connexion, les paiements, les données des utilisateurs, un correctif raté deux fois, trop de tests) et te donne deux choix : l'option sûre, ou continuer quand même. Explique tout sans jargon. Tient `PROJECT.md`, un carnet de ton app en langage simple.

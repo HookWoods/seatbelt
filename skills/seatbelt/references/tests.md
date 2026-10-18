@@ -20,4 +20,4 @@ About 15 tests is enough for a small app. If you are about to write more, pause 
 - Delete tests that check nothing (for example, a test that only checks that a function exists).
 
 ## Flip test
-For each new test, invert one condition in the code it covers (for example change `===` to `!==`), run the tests, and confirm at least one fails. Then undo the inversion. A test that still passes is not guarding anything: fix it or delete it. Tell the user how many tests passed the flip test.
+Do it only for tests on login, payment and data access, where a test that guards nothing is dangerous; it costs one extra test run each time. For each of those tests, invert one condition in the code it covers (for example change `===` to `!==`), run the tests, and confirm at least one fails. Then undo the inversion. A test that still passes is not guarding anything: fix it or delete it. Tell the user how many tests passed the flip test.

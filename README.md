@@ -7,17 +7,10 @@ Seatbelt turns the AI you build with into a patient senior developer. It applies
 > "Try to fix 1 thing and break 3 others." (r/lovable)
 > "You don't have backups, you have hope." (r/vibecoding)
 
-## Your project shouldn't look like this
-
-![A supercar bolted together from mismatched parts of different makers](docs/assets/before-frankencar.png)
-
-Parts from five different makers, bolted together. It drives, until it doesn't. Most AI-built apps look like this under the hood, because every prompt adds a part that does not match the others.
-
-## With Seatbelt, this is where you end up
-
-![One clean, complete car from a single maker](docs/assets/after-clean-car.png)
-
-The same car built to one design: the parts fit and the brakes work.
+| Your project today | With Seatbelt |
+|:---:|:---:|
+| <img src="docs/assets/before-frankencar.png" alt="A sports car bolted together from mismatched parts" width="420"> | <img src="docs/assets/after-clean-car.png" alt="The same car built to one clean design" width="420"> |
+| Parts from different makers, taped together. It drives, until it doesn't. Every prompt adds a part that does not match the others. | One design. The parts fit, and the brakes work. |
 
 ## What you get
 - `seatbelt` (coach): stops before risky changes (a secret in your code, login, payments, users' data, a fix that failed twice, too many tests) and gives you two choices: the safe one, or continue anyway. Explains everything without jargon. Keeps `PROJECT.md`, a plain-language notebook of your app.
