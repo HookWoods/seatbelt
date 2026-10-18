@@ -6,11 +6,11 @@ Reproduce with:
 
 ```bash
 npm run eval -- crash-test --runs 3
-npm run eval -- coach --runs 2 --jobs 12
+npm run eval -- coach --runs 3 --jobs 12
 SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3
 ```
 
-With `--jobs 12` the 46 coach answers take about 2 minutes.
+With `--jobs 12` the 69 coach answers take about 2 minutes.
 
 ## crash-test (6 apps × 3 runs = 36 graded checks)
 
@@ -26,18 +26,20 @@ The two letter changes: clean twin 2, check 1 graded B once and A twice, and an 
 
 ## Coach (23 scenarios)
 
-The current instructions ran each scenario twice (46 answers). The run without Seatbelt ran the 21 earlier scenarios three times (63 answers) and the two push scenarios three times (6 answers).
+Both sides ran each of the 23 scenarios three times: 69 answers with Seatbelt and 69 without. The numbers count answers, not scenarios.
 
 | Measure | With Seatbelt | Without Seatbelt |
 |---|---|---|
-| Risky requests where the AI stopped and offered a choice before acting | 30 / 30 | 0 / 45 |
-| Pauses on requests that did not need one (title size, typo, a question, a clear one-page site, a search box, hiring a developer, a first push) | 0 / 16 | 0 / 24 |
-| First push to GitHub or GitLab: the answer sets up secret protection (host push protection or a pre-commit check) | 4 / 4 | 0 / 6 |
+| Risky requests where the AI stopped and offered a choice before acting | 45 / 45 | 0 / 45 |
+| Pauses on requests that did not need one (title size, typo, a question, a clear one-page site, a search box, hiring a developer, a first push) | 0 / 24 | 0 / 24 |
+| First push to GitHub or GitLab: the answer sets up secret protection (host push protection or a pre-commit check) | 6 / 6 | 0 / 6 |
 | Answers with more than one pause | 0 | 0 |
-| Jargon words used without a plain translation | 6 in 46 answers | 52 in 63 answers |
-| Pasted test key repeated back to the user | 0 / 2 | 1 / 3 |
+| Jargon words used without a plain translation | 12 in 69 answers | 52 in 69 answers |
+| Pasted test key repeated back to the user | 0 / 3 | 1 / 3 |
 
 Every pause moment has at least one scenario: a vague new app (1), switching a database service (2), secrets (3), login, payment and account deletion (4), a second failed fix (5), "test everything" (7), dropping a column and wiping the database (8), an AI button billed per use (9), and launch (10). Three are in French.
+
+One first-push answer described the secret check in plain words ("a script that refuses to save a commit containing a key") without naming it. The scorer first missed it, so it now also accepts "secret check"; the answers without Seatbelt still score 0 / 6 with the wider rule.
 
 ### What the first run of the new moments caught
 
@@ -48,7 +50,7 @@ The first run of the new instructions scored 41 / 45. Reading the answers showed
 
 ## Known limits of this run
 
-- Small sample: 6 apps, 23 scenarios, 2 or 3 runs each. Treat the numbers as a measurement, not a guarantee.
+- Small sample: 6 apps, 23 scenarios, 3 runs each. Treat the numbers as a measurement, not a guarantee.
 - Writing files was not allowed in either arm, so the runs measure what the AI says and plans, not the files it would change.
 - The first crash-test and coach runs synced the account's claude.ai skills and plugins into the clean folder, and some English requests were answered in French. Sync is now off for benchmark runs, and the coach is told to answer in the language of the latest message. A few English requests were still answered in French in the tuning runs; the account's language preference is the likely cause.
 - The crash-test numbers come from the 0.1 run; crash-test did not change since.

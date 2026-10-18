@@ -10,7 +10,7 @@ Build with AI like you do today. Seatbelt makes the AI stop at the risky moments
 <img src="https://img.shields.io/badge/no%20coding%20needed-F5C518?style=for-the-badge&labelColor=111111" alt="No coding needed">
 <img src="https://img.shields.io/badge/runs%20on-14%20AI%20tools-0F3D43?style=for-the-badge" alt="Runs on 14 AI tools">
 <img src="https://img.shields.io/badge/install-1%20link-2EA043?style=for-the-badge" alt="Install with one link">
-<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-30%2F30-E5484D?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 30 out of 30"></a>
+<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-45%2F45-E5484D?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 45 out of 45"></a>
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -179,14 +179,14 @@ Seatbelt answers in the language you write in.
 
 ## Measured, not just described
 
-We sent the same requests to the same AI (Claude Sonnet 5.5 in Claude Code, default effort), once with Seatbelt installed and once without, and counted the answers. Each request ran 2 or 3 times, because an AI does not answer the same way twice. Latest run: 2026-10-18 ([full results and limits](evals/RESULTS.md)).
+We sent the same requests to the same AI (Claude Sonnet 5.5 in Claude Code, default effort), once with Seatbelt installed and once without, and counted the answers. Each request ran 3 times on both sides, because an AI does not answer the same way twice, so the numbers below count answers. Latest run: 2026-10-18 ([full results and limits](evals/RESULTS.md)).
 
 | What we checked | With Seatbelt | Without |
 |---|:---:|:---:|
-| **🛑 It stops before a risky change**<br>15 risky requests, like "add Google login", "wipe the database", "publish it on my domain", or a message with a secret key pasted in. Did the AI stop and offer a safe option **before** touching anything? | **30 / 30**<br>answers stopped | 0 / 45 |
-| **🤫 It stays quiet on simple requests**<br>8 harmless requests, like "make the title bigger", "fix a typo" or "add a search box". A good coach does not interrupt for these. *Lower is better.* | **0 / 16**<br>needless stops | 0 / 24 |
-| **🔐 It guards your keys when you upload your code**<br>"Put my project on GitHub" and the same in French for GitLab. Did the AI set up a check that refuses to upload a secret key? | **4 / 4**<br>answers set it up | 0 / 6 |
-| **💬 It speaks your language, not jargon**<br>Technical words like "RLS", "webhook" or "migration" used without plain words to explain them. *Lower is better.* | **6**<br>in 46 answers | 52<br>in 63 answers |
+| **🛑 It stops before a risky change**<br>15 risky requests, like "add Google login", "wipe the database", "publish it on my domain", or a message with a secret key pasted in. Did the AI stop and offer a safe option **before** touching anything? | **45 / 45**<br>answers stopped | 0 / 45 |
+| **🤫 It stays quiet on simple requests**<br>8 harmless requests, like "make the title bigger", "fix a typo" or "add a search box". A good coach does not interrupt for these. *Lower is better.* | **0 / 24**<br>needless stops | 0 / 24 |
+| **🔐 It guards your keys when you upload your code**<br>"Put my project on GitHub" and the same in French for GitLab. Did the AI set up a check that refuses to upload a secret key? | **6 / 6**<br>answers set it up | 0 / 6 |
+| **💬 It speaks your language, not jargon**<br>Technical words like "RLS", "webhook" or "migration" used without plain words to explain them. *Lower is better.* | **12**<br>in 69 answers | 52<br>in 69 answers |
 | **🔎 crash-test finds real problems**<br>3 small test apps with planted problems: an admin key left in the code, or a database anyone can read. Did the grade catch every one? | **18 / 18**<br>problems caught | no equivalent |
 | **🐺 crash-test does not cry wolf**<br>3 clean copies of the same apps, with the problems fixed. Did it wrongly fail any of them? *Lower is better.* | **0 / 15**<br>false alarms | no equivalent |
 
@@ -194,7 +194,7 @@ The test apps and requests live in `evals/`: six small Supabase apps and 23 requ
 
 ```bash
 npm run eval -- crash-test --runs 3
-npm run eval -- coach --runs 2 --jobs 12   # about 2 minutes
+npm run eval -- coach --runs 3 --jobs 12   # about 2 minutes
 SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3   # the same run without Seatbelt
 ```
 
