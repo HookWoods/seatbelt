@@ -125,3 +125,11 @@ test('no file in the repo contains raw invisible or direction-changing character
   const offenders = tracked.filter((f) => hidden.test(fs.readFileSync(f, 'utf8')))
   assert.deepEqual(offenders, [])
 })
+
+test('rubric picks the lowest matching grade so repeated runs agree', () => {
+  assert.match(fs.readFileSync('skills/crash-test/rubric.md', 'utf8'), /lowest grade that matches/i)
+})
+
+test('coach answers in the language of the latest message', () => {
+  assert.match(fs.readFileSync('skills/seatbelt/SKILL.md', 'utf8'), /language of the user's latest message/i)
+})

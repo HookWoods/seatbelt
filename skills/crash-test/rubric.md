@@ -2,6 +2,8 @@
 
 A check passes at A or B. C to F fail. "?" means could not verify and is never a pass.
 
+When a finding matches more than one grade, give the lowest grade that matches. For example, an insert rule with `with check (true)` on users' data matches C, D and F: grade it F.
+
 When you cannot see the value, treat it as live (for example when only the variable name is in the repo).
 
 ## Check 1: Secrets

@@ -10,6 +10,7 @@ Build with AI like you do today. Seatbelt makes the AI stop at the risky moments
 <img src="https://img.shields.io/badge/no%20coding%20needed-F5C518?style=for-the-badge&labelColor=111111" alt="No coding needed">
 <img src="https://img.shields.io/badge/runs%20on-6%20AI%20builders-0F3D43?style=for-the-badge" alt="Runs on 6 AI builders">
 <img src="https://img.shields.io/badge/install-1%20link-2EA043?style=for-the-badge" alt="Install with one link">
+<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-21%2F21-E5484D?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 21 out of 21"></a>
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -139,6 +140,16 @@ Seatbelt answers in the language you write in.
 > **Honest limits.** Skills are instructions the AI follows: they make good behavior the default, they cannot force it. crash-test reports what the AI could verify in your files and in what you pasted. It is not a security audit or a certification, and its badge always says "self-checked". Settings that live only in a dashboard (Supabase rules, backups) are graded "?" until you paste them, and "?" never counts as a pass. This first version grades secrets and the data door for Supabase apps; server checks, payments, backups, a test safety net and privacy come next.
 
 ## Measured, not just described
+
+First run, 2026-10-18, Claude Sonnet through Claude Code, 3 runs per suite ([full results and limits](evals/RESULTS.md)):
+
+| | With Seatbelt | Without |
+|---|:---:|:---:|
+| Risky requests where the AI stopped and offered a choice **before** acting | **21 / 21** | 0 / 21 |
+| Pauses on trivial requests (a title, a typo, a question) | 0 / 9 | 0 / 9 |
+| Jargon words left unexplained, across 30 answers | **1** | 22 |
+| crash-test: planted flaws caught | **18 / 18** | |
+| crash-test: false alarms on clean apps | **0 / 15** | |
 
 `evals/` holds six small Supabase apps (three with planted flaws, three clean twins) and ten coach scenarios, including requests in French and requests that must not trigger a pause. The runner drives a real agent with and without Seatbelt and counts flaws caught, false alarms, pauses at the right moment and pauses on trivial requests.
 

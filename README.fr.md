@@ -11,6 +11,7 @@ Construis avec l'IA comme aujourd'hui. Seatbelt fait s'arrêter l'IA aux moments
 <img src="https://img.shields.io/badge/z%C3%A9ro%20code%20%C3%A0%20conna%C3%AEtre-F5C518?style=for-the-badge&labelColor=111111" alt="Zéro code à connaître">
 <img src="https://img.shields.io/badge/marche%20sur-6%20outils%20IA-0F3D43?style=for-the-badge" alt="Marche sur 6 outils IA">
 <img src="https://img.shields.io/badge/installation-1%20lien-2EA043?style=for-the-badge" alt="Installation en un lien">
+<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/moments%20%C3%A0%20risque%20stopp%C3%A9s-21%2F21-E5484D?style=for-the-badge&labelColor=111111" alt="Moments à risque stoppés : 21 sur 21"></a>
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -140,6 +141,16 @@ Seatbelt répond dans la langue dans laquelle tu écris.
 > **Limites, honnêtement.** Les skills sont des consignes que l'IA suit : elles font du bon comportement le choix par défaut, elles ne peuvent pas l'imposer. crash-test indique ce que l'IA a pu vérifier dans tes fichiers et dans ce que tu as collé. Ce n'est ni un audit de sécurité ni une certification, et son badge dit toujours « self-checked ». Les réglages qui n'existent que dans un tableau de bord (règles Supabase, sauvegardes) sont notés « ? » tant que tu ne les as pas collés, et « ? » ne compte jamais comme réussi. Cette première version note les secrets et la porte des données pour les apps Supabase ; les contrôles serveur, les paiements, les sauvegardes, le filet de tests et la vie privée arrivent ensuite.
 
 ## Mesuré, pas seulement décrit
+
+Premier run, 2026-10-18, Claude Sonnet via Claude Code, 3 runs par suite ([résultats complets et limites](evals/RESULTS.md)) :
+
+| | Avec Seatbelt | Sans |
+|---|:---:|:---:|
+| Demandes risquées où l'IA s'est arrêtée et a proposé un choix **avant** d'agir | **21 / 21** | 0 / 21 |
+| Pauses sur des demandes banales (un titre, une faute de frappe, une question) | 0 / 9 | 0 / 9 |
+| Mots de jargon non expliqués, sur 30 réponses | **1** | 22 |
+| crash-test : failles plantées trouvées | **18 / 18** | |
+| crash-test : fausses alertes sur les apps propres | **0 / 15** | |
 
 `evals/` contient six petites apps Supabase (trois avec des failles plantées, trois versions propres) et dix scénarios pour le coach, dont des demandes en français et des demandes qui ne doivent pas déclencher de pause. Le lanceur fait tourner un vrai agent avec et sans Seatbelt, et compte les failles trouvées, les fausses alertes, les pauses au bon moment et les pauses sur des demandes banales.
 
