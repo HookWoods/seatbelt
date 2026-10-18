@@ -1,0 +1,8 @@
+{
+  "app": "notes-clean-3",
+  "expected": { "1": "pass", "2": "unknown" },
+  "runtimeFiles": { ".env": "STRIPE_SECRET_KEY=sk_live_EXAMPLEONLY000\nVITE_SUPABASE_URL=https://abcdexample.supabase.co\n" },
+  "evidence": [
+    { "check": 1, "file": ".gitignore", "line": 1, "contains": ".env" }
+  ]
+}

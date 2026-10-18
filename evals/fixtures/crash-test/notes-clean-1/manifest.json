@@ -1,0 +1,8 @@
+{
+  "app": "notes-clean-1",
+  "expected": { "1": "pass", "2": "pass" },
+  "evidence": [
+    { "check": 1, "file": "src/lib/supabase.js", "line": 4, "contains": "eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFiY2RleGFtcGxlIiwicm9sZSI6ImFub24ifQ" },
+    { "check": 2, "file": "supabase/migrations/001_notes.sql", "line": 8, "contains": "enable row level security" }
+  ]
+}

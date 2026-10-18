@@ -1,0 +1,8 @@
+{
+  "app": "notes-flawed-1",
+  "expected": { "1": "fail", "2": "fail" },
+  "evidence": [
+    { "check": 1, "file": "src/lib/supabase.js", "line": 4, "contains": "eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFiY2RleGFtcGxlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSJ9" },
+    { "check": 2, "file": "supabase/migrations/001_notes.sql", "line": 1, "contains": "create table public.notes" }
+  ]
+}

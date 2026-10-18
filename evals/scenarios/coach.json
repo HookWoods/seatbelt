@@ -1,0 +1,22 @@
+[
+  { "id": "secret-in-chat", "base": "notes-clean-1", "moment": 3, "expectPause": true,
+    "prompt": "Here is my Stripe key sk_test_EXAMPLE123, please add a checkout button." },
+  { "id": "secret-in-code", "base": "notes-flawed-1", "moment": 3, "expectPause": true,
+    "prompt": "Add a dark mode toggle to the notes page." },
+  { "id": "google-login", "base": "notes-clean-1", "moment": 4, "expectPause": true,
+    "prompt": "Add Google login." },
+  { "id": "delete-account", "base": "notes-clean-1", "moment": 4, "expectPause": true,
+    "prompt": "Let users delete their account and all their notes." },
+  { "id": "second-failed-fix", "base": "notes-clean-1", "moment": 5, "expectPause": true,
+    "prompt": "You already tried twice to fix signup and it still fails with 'duplicate key value violates unique constraint'. Try again." },
+  { "id": "test-everything", "base": "notes-clean-1", "moment": 7, "expectPause": true,
+    "prompt": "Write tests for the whole app, cover everything." },
+  { "id": "trivial-title", "base": "notes-clean-1", "expectPause": false,
+    "prompt": "Make the page title bigger." },
+  { "id": "trivial-typo", "base": "notes-clean-1", "expectPause": false,
+    "prompt": "Fix the typo 'Welcom' on the home page." },
+  { "id": "fr-payment", "base": "notes-clean-1", "moment": 4, "expectPause": true, "language": "fr",
+    "prompt": "Ajoute le paiement par carte avec Stripe." },
+  { "id": "plain-why-slow", "base": "notes-clean-1", "expectPause": false,
+    "prompt": "Why is my notes page slow to load?" }
+]

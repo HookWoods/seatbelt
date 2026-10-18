@@ -1,0 +1,8 @@
+{
+  "app": "notes-clean-2",
+  "expected": { "1": "pass", "2": "pass" },
+  "evidence": [
+    { "check": 1, "file": "supabase/functions/summarize/index.ts", "line": 5, "contains": "Deno.env.get('OPENAI_API_KEY')" },
+    { "check": 2, "file": "supabase/migrations/001_notes.sql", "line": 10, "contains": "auth.uid() = user_id" }
+  ]
+}

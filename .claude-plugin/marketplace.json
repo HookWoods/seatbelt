@@ -1,0 +1,11 @@
+{
+  "name": "seatbelt",
+  "owner": { "name": "Hugo Planque" },
+  "plugins": [
+    {
+      "name": "seatbelt",
+      "source": "./",
+      "description": "Coach and crash-test skills for people who build apps with AI."
+    }
+  ]
+}

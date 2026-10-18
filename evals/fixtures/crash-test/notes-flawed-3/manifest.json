@@ -1,0 +1,8 @@
+{
+  "app": "notes-flawed-3",
+  "expected": { "1": "fail", "2": "fail" },
+  "evidence": [
+    { "check": 1, "file": ".env", "line": 1, "contains": "sk_live_" },
+    { "check": 2, "file": "supabase/migrations/001_notes.sql", "line": 11, "contains": "with check (true)" }
+  ]
+}

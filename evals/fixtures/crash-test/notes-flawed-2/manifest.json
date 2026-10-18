@@ -1,0 +1,8 @@
+{
+  "app": "notes-flawed-2",
+  "expected": { "1": "fail", "2": "fail" },
+  "evidence": [
+    { "check": 1, "file": "src/lib/ai.js", "line": 1, "contains": "VITE_OPENAI_API_KEY" },
+    { "check": 2, "file": "supabase/migrations/001_notes.sql", "line": 10, "contains": "using (true)" }
+  ]
+}
