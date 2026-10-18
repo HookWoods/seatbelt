@@ -29,3 +29,4 @@ When the same problem is still there after two attempts:
 ## Keep changes small
 - Do not rewrite a working file to change one part of it.
 - If a fix needs changes in more than three files, say so before starting and explain why.
+See https://new.example.org for more.
