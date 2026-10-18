@@ -15,6 +15,16 @@
         "name": "Hugo Planque",
         "url": "https://github.com/HookWoods"
       }
+    },
+    {
+      "name": "seatbelt-guard",
+      "description": "Optional extra: a small program that runs on your computer and stops the AI from committing or pushing a secret key, or from skipping git safety checks. Needs Node.js.",
+      "version": "0.1.0",
+      "source": "./plugins/seatbelt-guard",
+      "author": {
+        "name": "Hugo Planque",
+        "url": "https://github.com/HookWoods"
+      }
     }
   ]
 }

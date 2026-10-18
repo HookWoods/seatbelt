@@ -1,0 +1,17 @@
+{
+  "description": "Stops git commit and git push when they would save or send a secret, and refuses --no-verify and changes to core.hooksPath.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/guard.mjs\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

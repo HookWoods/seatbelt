@@ -86,6 +86,12 @@ Dans **Plugins**, clique sur **Ajouter**, puis **Ajouter une place de marché**,
 /plugin marketplace add HookWoods/seatbelt
 /plugin install seatbelt@seatbelt
 ```
+
+**Extra optionnel pour Claude Code : seatbelt-guard.** Les skills demandent à l'IA de ne pas enregistrer ni envoyer de clé secrète ; cet extra s'en assure. Avant que l'IA lance `git commit` ou `git push`, il regarde ce qui serait enregistré ou envoyé et arrête la commande s'il trouve une clé secrète ou un fichier secret comme `.env`, sans jamais afficher la clé. Il refuse aussi `--no-verify` et tout changement de `core.hooksPath`, les deux façons de sauter les contrôles de git. Contrairement aux skills, qui sont du simple texte, **seatbelt-guard est un petit programme qui tourne sur ton ordinateur** avant chaque commande lancée par l'IA. Il demande Node.js 22 ou plus récent, ne marche que dans Claude Code, et reste éteint tant que tu ne l'installes pas :
+
+```bash
+/plugin install seatbelt-guard@seatbelt
+```
 </details>
 
 <details>
@@ -222,7 +228,7 @@ Oui. Le coach écrit le carnet après son premier vrai changement, et crash-test
 <details>
 <summary><b>Mon code ou mes données sont-ils envoyés quelque part ?</b></summary>
 
-Non. Seatbelt est du texte lu par l'outil d'IA que tu utilises déjà. Pas de serveur, rien à lancer.
+Non. Seatbelt est du texte lu par l'outil d'IA que tu utilises déjà. Pas de serveur, rien à lancer. Seule exception : l'extra optionnel seatbelt-guard pour Claude Code, un petit programme qui tourne sur ton ordinateur si tu l'installes ; il lit l'historique git de ton projet et n'envoie rien nulle part.
 </details>
 
 ## Contribuer

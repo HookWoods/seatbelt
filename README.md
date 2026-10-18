@@ -85,6 +85,12 @@ In **Plugins**, click **Add**, then **Add a marketplace**, and enter `HookWoods/
 /plugin marketplace add HookWoods/seatbelt
 /plugin install seatbelt@seatbelt
 ```
+
+**Optional extra for Claude Code: seatbelt-guard.** The skills ask the AI not to save or send a secret key; this extra makes sure of it. Before the AI runs `git commit` or `git push`, it looks at what would be saved or sent and stops the command if it finds a secret key or a secret file such as `.env`, without ever showing the key. It also refuses `--no-verify` and any change to `core.hooksPath`, the two ways to skip git's safety checks. Unlike the skills, which are plain text, **seatbelt-guard is a small program that runs on your computer** before every command the AI starts. It needs Node.js 22 or later, works in Claude Code only, and is off unless you install it:
+
+```bash
+/plugin install seatbelt-guard@seatbelt
+```
 </details>
 
 <details>
@@ -221,7 +227,7 @@ Yes. The coach writes the notebook after its first real change, and crash-test w
 <details>
 <summary><b>Is my code or data sent anywhere?</b></summary>
 
-No. Seatbelt is plain text read by the AI tool you already use. No server, nothing to run.
+No. Seatbelt is plain text read by the AI tool you already use. No server, nothing to run. The one exception is the optional seatbelt-guard extra for Claude Code, a small program that runs on your computer if you install it; it reads your project's git history and sends nothing anywhere.
 </details>
 
 ## Contributing

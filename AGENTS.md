@@ -28,6 +28,7 @@ If any of these fails, do not open the pull request. Explain to your human what 
 | `skills/crash-test/` | The readiness grade: rubric, checks, stack sheets, templates | Every user's AI agent |
 | `bootstrap/KNOWLEDGE.md` | The three lines users paste into their project | Users |
 | `.claude-plugin/`, `.codex-plugin/`, `.cursor-plugin/`, `.devin-plugin/`, `.kimi-plugin/`, `.agents/`, `gemini-extension.json`, `GEMINI.md` | One thin manifest per tool, all pointing at `skills/` | The tools' plugin systems |
+| `plugins/seatbelt-guard/` | Opt-in Claude Code hook that stops a commit or push carrying a secret: code that runs on the user's machine | Users who install it |
 | `scripts/` | Validator and skill guard (maintainers only, never run on a user's machine) | CI and contributors |
 | `evals/` | Fixture apps, coach scenarios, runner and scorer | CI and contributors |
 | `tests/` | `node:test` suites for all of the above | CI and contributors |
@@ -44,7 +45,7 @@ If any of these fails, do not open the pull request. Explain to your human what 
 ## Rules for code
 
 - Node 22 or later, ES modules, no dependencies. `tests/skills.test.mjs` fails if `package.json` gains one.
-- Nothing in `scripts/` or `evals/` ships to users. Users only ever receive Markdown.
+- Nothing in `scripts/` or `evals/` ships to users. Users only ever receive Markdown, except those who install the opt-in `plugins/seatbelt-guard/`, which stays dependency-free and never prints a key.
 - Each manifest carries the version from `package.json`; `tests/manifests.test.mjs` checks it. Change the version in all of them together.
 - Write invisible or direction-changing characters as `\u` escapes, never as raw characters. A test checks every tracked file.
 

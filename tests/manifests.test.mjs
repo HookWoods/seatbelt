@@ -32,6 +32,15 @@ test('marketplaces list seatbelt at the package version', () => {
   assert.equal(agents.plugins[0].name, 'seatbelt')
 })
 
+test('the optional guard plugin is listed second and carries the package version', () => {
+  const entry = read('.claude-plugin/marketplace.json').plugins[1]
+  assert.equal(entry.name, 'seatbelt-guard')
+  assert.equal(entry.version, version)
+  const m = read(`${entry.source}/.claude-plugin/plugin.json`)
+  assert.equal(m.name, 'seatbelt-guard')
+  assert.equal(m.version, version)
+})
+
 test('Kimi starts every session with the coach skill', () => {
   const kimi = read('.kimi-plugin/plugin.json')
   assert.equal(kimi.sessionStart.skill, 'seatbelt')
