@@ -2,15 +2,13 @@
 
 <img src="docs/assets/banner.svg" alt="Seatbelt: a patient senior developer inside the AI you build with. Works with Lovable, Bolt, Replit, Claude, Cursor and Codex." width="880">
 
-### Vibe coder should no longer be an insult.
+### "Vibe coder" should no longer be an insult.
 
 Build with AI like you do today. Seatbelt makes the AI stop at the risky moments, explain them in plain words, and keep your app clean and safe until launch day.
 
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1F6F78?style=for-the-badge" alt="MIT license"></a>
-<img src="https://img.shields.io/badge/no%20coding%20needed-F5C518?style=for-the-badge&labelColor=111111" alt="No coding needed">
 <img src="https://img.shields.io/badge/runs%20on-14%20AI%20tools-0F3D43?style=for-the-badge" alt="Runs on 14 AI tools">
-<img src="https://img.shields.io/badge/install-1%20link-2EA043?style=for-the-badge" alt="Install with one link">
-<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-45%2F45-E5484D?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 45 out of 45"></a>
+<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/risky%20moments%20caught-45%2F45-2EA043?style=for-the-badge&labelColor=111111" alt="Risky moments caught: 45 out of 45"></a>
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -77,6 +75,28 @@ Before you launch, you ask for a crash test. You get a grade per area, the file 
 Each skill is one folder: `seatbelt` is the coach, `crash-test` is the grade. Pick your tool.
 
 <details open>
+<summary><b>Lovable</b></summary>
+
+1. Workspace settings, **Skills**, **Add from GitHub** (workspace admins).
+2. Paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then the same link ending in `crash-test`.
+3. Paste the three lines below into your project **Knowledge**.
+</details>
+
+<details open>
+<summary><b>Bolt</b></summary>
+
+1. **Knowledge**, **Skills**, **Import from GitHub**.
+2. Import `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then the `crash-test` link (Bolt imports one skill at a time).
+3. Paste the three lines below into your project Knowledge.
+</details>
+
+<details>
+<summary><b>Replit</b></summary>
+
+Click **Use a skill**, paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then do the same with the `crash-test` link.
+</details>
+
+<details>
 <summary><b>Claude Code, Claude Desktop and Claude.ai</b></summary>
 
 In **Plugins**, click **Add**, then **Add a marketplace**, and enter `HookWoods/seatbelt`. Install **seatbelt** from it. In Claude Code you can also type:
@@ -91,28 +111,6 @@ In **Plugins**, click **Add**, then **Add a marketplace**, and enter `HookWoods/
 ```bash
 /plugin install seatbelt-guard@seatbelt
 ```
-</details>
-
-<details>
-<summary><b>Lovable</b></summary>
-
-1. Workspace settings, **Skills**, **Add from GitHub** (workspace admins).
-2. Paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then the same link ending in `crash-test`.
-3. Paste the three lines below into your project **Knowledge**.
-</details>
-
-<details>
-<summary><b>Bolt</b></summary>
-
-1. **Knowledge**, **Skills**, **Import from GitHub**.
-2. Import `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then the `crash-test` link (Bolt imports one skill at a time).
-3. Paste the three lines below into your project Knowledge.
-</details>
-
-<details>
-<summary><b>Replit</b></summary>
-
-Click **Use a skill**, paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then do the same with the `crash-test` link.
 </details>
 
 <details>
@@ -232,15 +230,7 @@ No. Seatbelt is plain text read by the AI tool you already use. No server, nothi
 
 ## Contributing
 
-Better wording in the skills is worth as much as code. Before opening a pull request:
-
-```bash
-npm test          # content, scorer and runner tests (Node 22+, no dependencies)
-npm run validate  # platform limits: name, description length, file sizes
-npm run guard     # no hidden instructions; new domains or commands need a maintainer's approval
-```
-
-New crash-test checks go in `skills/crash-test/checks/`, new stacks in `skills/crash-test/stacks/`, each with a fixture app in `evals/fixtures/` that proves the check catches the flaw and stays quiet on a clean twin.
+Better wording in the skills is worth as much as code. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
 ## License
 

@@ -2,16 +2,14 @@
 
 <img src="docs/assets/banner-fr.svg" alt="Seatbelt : un développeur senior patient, dans l'IA avec laquelle tu construis. Marche avec Lovable, Bolt, Replit, Claude, Cursor et Codex." width="880">
 
-### Vibe coder should no longer be an insult.
-*Vibe-coder ne devrait plus être une insulte.*
+### "Vibe coder" should no longer be an insult.
+*« Vibe coder » ne devrait plus être une insulte.*
 
 Construis avec l'IA comme aujourd'hui. Seatbelt fait s'arrêter l'IA aux moments à risque, les explique avec des mots simples, et garde ton app propre et sûre jusqu'au jour du lancement.
 
 <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-1F6F78?style=for-the-badge" alt="Licence MIT"></a>
-<img src="https://img.shields.io/badge/z%C3%A9ro%20code%20%C3%A0%20conna%C3%AEtre-F5C518?style=for-the-badge&labelColor=111111" alt="Zéro code à connaître">
 <img src="https://img.shields.io/badge/marche%20sur-14%20outils%20IA-0F3D43?style=for-the-badge" alt="Marche sur 14 outils IA">
-<img src="https://img.shields.io/badge/installation-1%20lien-2EA043?style=for-the-badge" alt="Installation en un lien">
-<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/moments%20%C3%A0%20risque%20stopp%C3%A9s-45%2F45-E5484D?style=for-the-badge&labelColor=111111" alt="Moments à risque stoppés : 45 sur 45"></a>
+<a href="evals/RESULTS.md"><img src="https://img.shields.io/badge/moments%20%C3%A0%20risque%20stopp%C3%A9s-45%2F45-2EA043?style=for-the-badge&labelColor=111111" alt="Moments à risque stoppés : 45 sur 45"></a>
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -78,6 +76,28 @@ Avant la mise en ligne, tu demandes un crash test. Tu obtiens une note par domai
 Chaque skill est un dossier : `seatbelt` est le coach, `crash-test` est la note. Choisis ton outil.
 
 <details open>
+<summary><b>Lovable</b></summary>
+
+1. Paramètres du workspace, **Skills**, **Add from GitHub** (admins du workspace).
+2. Colle `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, puis le même lien qui finit par `crash-test`.
+3. Colle les trois lignes ci-dessous dans la **Knowledge** de ton projet.
+</details>
+
+<details open>
+<summary><b>Bolt</b></summary>
+
+1. **Knowledge**, **Skills**, **Import from GitHub**.
+2. Importe `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, puis le lien `crash-test` (Bolt importe un skill à la fois).
+3. Colle les trois lignes ci-dessous dans la Knowledge du projet.
+</details>
+
+<details>
+<summary><b>Replit</b></summary>
+
+Clique sur **Use a skill**, colle `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, puis fais pareil avec le lien `crash-test`.
+</details>
+
+<details>
 <summary><b>Claude Code, Claude Desktop et Claude.ai</b></summary>
 
 Dans **Plugins**, clique sur **Ajouter**, puis **Ajouter une place de marché**, et entre `HookWoods/seatbelt`. Installe **seatbelt** depuis cette place de marché. Dans Claude Code, tu peux aussi taper :
@@ -92,28 +112,6 @@ Dans **Plugins**, clique sur **Ajouter**, puis **Ajouter une place de marché**,
 ```bash
 /plugin install seatbelt-guard@seatbelt
 ```
-</details>
-
-<details>
-<summary><b>Lovable</b></summary>
-
-1. Paramètres du workspace, **Skills**, **Add from GitHub** (admins du workspace).
-2. Colle `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, puis le même lien qui finit par `crash-test`.
-3. Colle les trois lignes ci-dessous dans la **Knowledge** de ton projet.
-</details>
-
-<details>
-<summary><b>Bolt</b></summary>
-
-1. **Knowledge**, **Skills**, **Import from GitHub**.
-2. Importe `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, puis le lien `crash-test` (Bolt importe un skill à la fois).
-3. Colle les trois lignes ci-dessous dans la Knowledge du projet.
-</details>
-
-<details>
-<summary><b>Replit</b></summary>
-
-Clique sur **Use a skill**, colle `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, puis fais pareil avec le lien `crash-test`.
 </details>
 
 <details>
@@ -233,15 +231,7 @@ Non. Seatbelt est du texte lu par l'outil d'IA que tu utilises déjà. Pas de se
 
 ## Contribuer
 
-Améliorer la formulation des skills vaut autant que du code. Avant d'ouvrir une pull request :
-
-```bash
-npm test          # tests du contenu, du scoring et du lanceur (Node 22+, aucune dépendance)
-npm run validate  # limites des plateformes : nom, longueur de la description, taille des fichiers
-npm run guard     # pas d'instructions cachées ; un nouveau domaine ou une commande demande l'accord d'un mainteneur
-```
-
-Les nouveaux contrôles crash-test vont dans `skills/crash-test/checks/`, les nouvelles stacks dans `skills/crash-test/stacks/`, chacun avec une app de test dans `evals/fixtures/` qui prouve que le contrôle trouve la faille et reste silencieux sur la version propre.
+Améliorer la formulation des skills vaut autant que du code. Lis [CONTRIBUTING.md](CONTRIBUTING.md) avant d'ouvrir une pull request.
 
 ## Licence
 
