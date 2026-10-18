@@ -1,6 +1,6 @@
 {
   "name": "seatbelt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A patient senior developer for people who build apps with AI: safe defaults, plain-language pauses at risky moments, a project notebook, and a crash-test readiness grade.",
   "contextFileName": "GEMINI.md"
 }
