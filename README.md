@@ -179,7 +179,7 @@ Seatbelt answers in the language you write in.
 
 ## Measured, not just described
 
-We sent the same requests to the same AI (Claude Sonnet in Claude Code), once with Seatbelt installed and once without, and counted the answers. Each request ran 2 or 3 times, because an AI does not answer the same way twice. Latest run: 2026-10-18 ([full results and limits](evals/RESULTS.md)).
+We sent the same requests to the same AI (Claude Sonnet 5.5 in Claude Code, default effort), once with Seatbelt installed and once without, and counted the answers. Each request ran 2 or 3 times, because an AI does not answer the same way twice. Latest run: 2026-10-18 ([full results and limits](evals/RESULTS.md)).
 
 | What we checked | With Seatbelt | Without |
 |---|:---:|:---:|

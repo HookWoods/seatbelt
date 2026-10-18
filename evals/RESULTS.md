@@ -1,6 +1,6 @@
 # Benchmark results
 
-Run on 2026-10-18 with Claude Code 2.1.299 in print mode (`claude -p`), model Sonnet, a clean configuration folder (no personal plugins, hooks or memory, claude.ai skill sync turned off), tools limited to Read, Grep, Glob and Skill, and a $1 budget cap per run.
+Run on 2026-10-18 with Claude Code 2.1.299 in print mode (`claude -p`), model Claude Sonnet 5.5 (`claude-sonnet-5-5`, chosen with `--model sonnet`) at Claude Code's default effort (no `--effort` flag), a clean configuration folder (no personal plugins, hooks or memory, claude.ai skill sync turned off), tools limited to Read, Grep, Glob and Skill, and a $1 budget cap per run.
 
 Reproduce with:
 
@@ -52,4 +52,4 @@ The first run of the new instructions scored 41 / 45. Reading the answers showed
 - Writing files was not allowed in either arm, so the runs measure what the AI says and plans, not the files it would change.
 - The first crash-test and coach runs synced the account's claude.ai skills and plugins into the clean folder, and some English requests were answered in French. Sync is now off for benchmark runs, and the coach is told to answer in the language of the latest message. A few English requests were still answered in French in the tuning runs; the account's language preference is the likely cause.
 - The crash-test numbers come from the 0.1 run; crash-test did not change since.
-- One model (Sonnet). Other models and other tools (Lovable, Bolt, Replit, Cursor) are not measured yet.
+- One model (Claude Sonnet 5.5) at one effort level (the default). Other models and other tools (Lovable, Bolt, Replit, Cursor) are not measured yet.

@@ -180,7 +180,7 @@ Seatbelt répond dans la langue dans laquelle tu écris.
 
 ## Mesuré, pas seulement décrit
 
-On a envoyé les mêmes demandes à la même IA (Claude Sonnet dans Claude Code), une fois avec Seatbelt et une fois sans, puis on a compté les réponses. Chaque demande a tourné 2 ou 3 fois, parce qu'une IA ne répond jamais deux fois pareil. Dernier run : 2026-10-18 ([résultats complets et limites](evals/RESULTS.md)).
+On a envoyé les mêmes demandes à la même IA (Claude Sonnet 5.5 dans Claude Code, effort par défaut), une fois avec Seatbelt et une fois sans, puis on a compté les réponses. Chaque demande a tourné 2 ou 3 fois, parce qu'une IA ne répond jamais deux fois pareil. Dernier run : 2026-10-18 ([résultats complets et limites](evals/RESULTS.md)).
 
 | Ce qu'on a vérifié | Avec Seatbelt | Sans |
 |---|:---:|:---:|
