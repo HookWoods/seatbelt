@@ -1,0 +1,27 @@
+{
+  "app": "stripe-flawed",
+  "expected": {
+    "1": "fail",
+    "4": "fail"
+  },
+  "evidence": [
+    {
+      "check": 1,
+      "file": "lib/stripe.ts",
+      "line": 3,
+      "contains": "process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY"
+    },
+    {
+      "check": 4,
+      "file": "app/api/webhooks/stripe/route.ts",
+      "line": 4,
+      "contains": "const event = await req.json()"
+    },
+    {
+      "check": 4,
+      "file": "app/api/checkout/route.ts",
+      "line": 9,
+      "contains": "line_items: [{ price: priceId, quantity: 1 }]"
+    }
+  ]
+}

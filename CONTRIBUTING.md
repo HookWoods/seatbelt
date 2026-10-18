@@ -9,7 +9,7 @@ Thank you for helping people who build with AI ship safer apps. The most valuabl
 | Seatbelt did something wrong in Lovable, Bolt, Replit, Claude, Cursor... | Open a **platform report** issue with the prompt you used and what the AI answered. Reports become new eval scenarios. |
 | A sentence in a skill that confused you or your AI | Open a pull request that changes it, with the scenario that shows the problem. |
 | A flaw AI-built apps often have that crash-test misses | Add a check sheet in `skills/crash-test/checks/` and a fixture app in `evals/fixtures/crash-test/` (one with the flaw, one clean twin). |
-| A stack crash-test does not know (Firebase, Next.js, Stripe...) | Add a stack sheet in `skills/crash-test/stacks/` and a fixture app. |
+| A stack crash-test does not know yet (Clerk, Convex, Appwrite, PocketBase...) | Add a stack sheet in `skills/crash-test/stacks/` and a fixture app. |
 | A translation | Translate `README.md` into `README.<lang>.md` and the SVGs in `docs/assets/` (they are generated with French and English text side by side). |
 
 ## Before you open a pull request

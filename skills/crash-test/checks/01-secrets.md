@@ -13,6 +13,8 @@ Plain words: "the keys to your accounts must stay in a locked drawer, never in t
 - `sk-` followed by letters or digits (OpenAI and similar)
 - `sb_secret_` (new Supabase secret key)
 - `service_role` (Supabase admin key), or a JWT whose payload has the role `service_role`. Supabase keys starting with `eyJ` are JWTs: decode the middle part (between the two dots, base64) and read `role`. `anon` is public; `service_role` is a secret. Never decide from a comment or a variable name alone.
+- `whsec_` (Stripe webhook signing secret)
+- A Google service account key: JSON with `"type": "service_account"` and `"private_key"` (Firebase Admin)
 - `AKIA` (AWS), `ghp_` / `github_pat_` (GitHub), `xoxb-` (Slack), `-----BEGIN PRIVATE KEY-----`
 - Database URLs with a password: `postgres://user:password@`
 - Variable names containing `SECRET`, `PRIVATE`, `PASSWORD`, `TOKEN` or `API_KEY` used in client code

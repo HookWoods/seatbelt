@@ -2,6 +2,8 @@
 
 Plain words: "a rule at the data door: each user opens only their own rows. The rule is invisible, so we check that it works, not only that it exists."
 
+This sheet uses Supabase words. For Firebase, the data door is the security rules: follow `stacks/firebase.md` and grade with the same rubric.
+
 ## List the tables the app uses
 Search the code for every `.from('<table>')` call (and `supabase.from("<table>")`). These are the tables to check.
 

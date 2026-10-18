@@ -194,3 +194,14 @@ test('crash-test runs all seven checks, each from a sheet with a rubric section'
   })
   assert.doesNotMatch(skill, /not covered yet/i)
 })
+
+test('crash-test routes every stack sheet, and each fixture stack has a flawed app and a clean twin', () => {
+  const skill = fs.readFileSync('skills/crash-test/SKILL.md', 'utf8')
+  const apps = fs.readdirSync('evals/fixtures/crash-test')
+  for (const sheet of fs.readdirSync('skills/crash-test/stacks')) {
+    assert.match(skill, new RegExp(`stacks/${sheet}`), `${sheet} is not routed`)
+  }
+  for (const stack of ['firebase', 'nextjs', 'stripe']) {
+    assert.ok(apps.includes(stack + '-flawed') && apps.includes(stack + '-clean'), stack)
+  }
+})

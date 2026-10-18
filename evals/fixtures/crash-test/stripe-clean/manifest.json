@@ -1,0 +1,27 @@
+{
+  "app": "stripe-clean",
+  "expected": {
+    "1": "pass",
+    "4": "pass"
+  },
+  "evidence": [
+    {
+      "check": 1,
+      "file": "lib/stripe.ts",
+      "line": 4,
+      "contains": "process.env.STRIPE_SECRET_KEY"
+    },
+    {
+      "check": 4,
+      "file": "app/api/webhooks/stripe/route.ts",
+      "line": 8,
+      "contains": "stripe.webhooks.constructEvent("
+    },
+    {
+      "check": 4,
+      "file": "app/api/checkout/route.ts",
+      "line": 10,
+      "contains": "const price = PRICES[plan]"
+    }
+  ]
+}

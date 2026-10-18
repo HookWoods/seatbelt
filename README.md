@@ -175,7 +175,7 @@ No commands to learn. Build as usual, and ask in your own words when you want so
 Seatbelt answers in the language you write in.
 
 > [!IMPORTANT]
-> **Honest limits.** Skills are instructions the AI follows: they make good behavior the default, they cannot force it. crash-test reports what the AI could verify in your files and in what you pasted. It is not a security audit or a certification, and its badge always says "self-checked". Settings that live only in a dashboard (Supabase rules, backups) are graded "?" until you paste them, and "?" never counts as a pass. crash-test runs seven checks on any app it can read; its stack sheet for now is Supabase, so other stacks get the general checks without stack-specific traps.
+> **Honest limits.** Skills are instructions the AI follows: they make good behavior the default, they cannot force it. crash-test reports what the AI could verify in your files and in what you pasted. It is not a security audit or a certification, and its badge always says "self-checked". Settings that live only in a dashboard (Supabase rules, backups) are graded "?" until you paste them, and "?" never counts as a pass. crash-test runs seven checks on any app it can read; it knows the traps specific to Supabase, Firebase, Next.js and Stripe, and other stacks get the general checks only.
 
 ## Measured, not just described
 
@@ -187,10 +187,10 @@ We sent the same requests to the same AI (Claude Sonnet 5.5 in Claude Code, defa
 | **🤫 It stays quiet on simple requests**<br>8 harmless requests, like "make the title bigger", "fix a typo" or "add a search box". A good coach does not interrupt for these. *Lower is better.* | **0 / 24**<br>needless stops | 0 / 24 |
 | **🔐 It guards your keys when you upload your code**<br>"Put my project on GitHub" and the same in French for GitLab. Did the AI set up a check that refuses to upload a secret key? | **6 / 6**<br>answers set it up | 0 / 6 |
 | **💬 It speaks your language, not jargon**<br>Technical words like "RLS", "webhook" or "migration" used without plain words to explain them. *Lower is better.* | **12**<br>in 69 answers | 52<br>in 69 answers |
-| **🔎 crash-test finds real problems**<br>8 small test apps with planted problems, at least one for each of the 7 checks: an admin key left in the code, a database anyone can read, a price the buyer can change, a deploy that wipes the data, tests that check nothing, a password written to the logs... Did the grade catch every one? | **33 / 33**<br>problems caught | no equivalent |
-| **🐺 crash-test does not cry wolf**<br>8 clean copies of the same apps, with the problems fixed. Did it wrongly fail any of them? *Lower is better.* | **0 / 30**<br>false alarms | no equivalent |
+| **🔎 crash-test finds real problems**<br>11 small test apps with planted problems, at least one for each of the 7 checks and for Firebase, Next.js and Stripe: an admin key left in the code, a database anyone can read, a price the buyer can change, a deploy that wipes the data, tests that check nothing, a password written to the logs... Did the grade catch every one? | **47 / 48**<br>problems caught | no equivalent |
+| **🐺 crash-test does not cry wolf**<br>11 clean copies of the same apps, with the problems fixed. Did it wrongly fail any of them? *Lower is better.* | **0 / 51**<br>false alarms | no equivalent |
 
-The test apps and requests live in `evals/`: 16 small Supabase apps and 23 requests that cover every pause moment, three of them in French. Anyone can run them again with the commands below.
+The test apps and requests live in `evals/`: 22 small apps (Supabase, Firebase, Next.js, Stripe) and 23 requests that cover every pause moment, three of them in French. Anyone can run them again with the commands below.
 
 ```bash
 npm run eval -- crash-test --runs 3 --jobs 12

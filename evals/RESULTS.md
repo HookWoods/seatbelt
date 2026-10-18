@@ -12,9 +12,9 @@ SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3
 
 With `--jobs 12` the 69 coach answers take about 2 minutes, and the 48 crash-test certificates about 3.
 
-## crash-test (16 apps × 3 runs = 66 graded checks)
+## crash-test (22 apps × 3 runs = 102 graded checks)
 
-Six notes apps test checks 1 and 2 (three with planted flaws, three clean twins). Ten more apps test checks 3 to 7, one app with a planted flaw and one clean twin per check:
+Six notes apps test checks 1 and 2 (three with planted flaws, three clean twins). Ten more apps test checks 3 to 7, one app with a planted flaw and one clean twin per check. Six more test the stack sheets (Firebase, Next.js, Stripe), also as flawed and clean pairs:
 
 | Check | Planted flaw | Clean twin |
 |---|---|---|
@@ -23,16 +23,21 @@ Six notes apps test checks 1 and 2 (three with planted flaws, three clean twins)
 | 5. Backups | The deploy script resets the live database (`db reset --linked`) | A nightly export job, and a dated restore test in PROJECT.md |
 | 6. Safety net | A test that checks `true`, a snapshot, and a CI step that ignores failures | Tests that user B cannot read user A's notes and that a logged-out visitor sees nothing, run on every push |
 | 7. Privacy | The sign-up page logs the password, trackers load before consent, and "Delete my account" only logs out | A privacy page with retention, no trackers, and a deletion that removes notes, photos and the login |
+| Firebase (checks 1, 2) | Test-mode Firestore rules open to everyone, storage open to any logged-in user; the public web config must not be flagged | Rules that check the owner on read, create, update and delete; files kept in each user's folder |
+| Next.js (checks 1, 3) | An OpenAI key behind `NEXT_PUBLIC_` in a client component; a server action that deletes any note by id | The key read in a route handler; the action checks the session and the owner |
+| Stripe (checks 1, 4) | The secret key behind `NEXT_PUBLIC_`, the price id taken from the browser, an unverified webhook | Server-only key, price from a server list, verified webhook that waits for `paid`, handles each event once and ends access when the subscription ends |
 
 | Measure | Result |
 |---|---|
-| Planted flaws graded as failing | 33 / 33 |
-| False alarms on the clean twins | 0 / 30 |
+| Planted flaws graded as failing | 47 / 48 |
+| False alarms on the clean twins | 0 / 51 |
 | "?" when the database rules live only in the dashboard | 3 / 3 |
-| Same pass or fail verdict for a check across the 3 runs | 22 / 22 |
-| Same letter grade for a check across the 3 runs | 20 / 22 |
+| Same pass or fail verdict for a check across the 3 runs | 33 / 34 |
+| Same letter grade for a check across the 3 runs | 30 / 34 |
 
-The two letter changes stayed on the passing side: clean twin 3, check 1 graded A once and B twice, and the clean server app graded A once and B twice.
+The one miss: in one run out of three, flawed app 3's committed `.env` was read as holding an empty Stripe key and graded B; the other two runs graded it D. The rubric already said to treat an unseen value as live; it now also says that a secret variable in an env file `.gitignore` does not list is graded D at best. The three other letter changes moved between A and B on checks that should pass, so they stayed on the passing side.
+
+Two earlier runs of this suite found real gaps in the clean twins, not in the grader: the clean payment app granted access on `checkout.session.completed` without checking `payment_status`, both clean payment apps marked an event as handled before the update finished, and the clean Firebase rules let an owner hand a note to another user. The twins were fixed, the Firebase sheet now names that trap, and the rubric now grades a payment gap that cannot unlock anything without paying as B.
 
 ## Coach (23 scenarios)
 
@@ -60,7 +65,7 @@ The first run of the new instructions scored 41 / 45. Reading the answers showed
 
 ## Known limits of this run
 
-- Small sample: 16 apps, 23 scenarios, 3 runs each. Each check from 3 to 7 has one flawed app and one clean twin, so a flaw written differently could still be missed. Treat the numbers as a measurement, not a guarantee.
+- Small sample: 22 apps, 23 scenarios, 3 runs each. Each check and each stack sheet has one flawed app and one clean twin, so a flaw written differently could still be missed. Treat the numbers as a measurement, not a guarantee.
 - Writing files was not allowed in either arm, so the runs measure what the AI says and plans, not the files it would change.
 - The first crash-test and coach runs synced the account's claude.ai skills and plugins into the clean folder, and some English requests were answered in French. Sync is now off for benchmark runs, and the coach is told to answer in the language of the latest message. A few English requests were still answered in French in the tuning runs; the account's language preference is the likely cause.
 - One model (Claude Sonnet 5.5) at one effort level (the default). Other models and other tools (Lovable, Bolt, Replit, Cursor) are not measured yet.

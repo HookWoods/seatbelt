@@ -1,0 +1,27 @@
+{
+  "app": "firebase-flawed",
+  "expected": {
+    "1": "pass",
+    "2": "fail"
+  },
+  "evidence": [
+    {
+      "check": 1,
+      "file": "src/lib/firebase.js",
+      "line": 8,
+      "contains": "apiKey: 'AIzaSyEXAMPLE"
+    },
+    {
+      "check": 2,
+      "file": "firestore.rules",
+      "line": 5,
+      "contains": "allow read, write: if request.time < timestamp.date(2026, 12, 1);"
+    },
+    {
+      "check": 2,
+      "file": "storage.rules",
+      "line": 5,
+      "contains": "allow read, write: if request.auth != null;"
+    }
+  ]
+}

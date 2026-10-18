@@ -1,0 +1,27 @@
+{
+  "app": "firebase-clean",
+  "expected": {
+    "1": "pass",
+    "2": "pass"
+  },
+  "evidence": [
+    {
+      "check": 1,
+      "file": "src/lib/firebase.js",
+      "line": 8,
+      "contains": "apiKey: 'AIzaSyEXAMPLE"
+    },
+    {
+      "check": 2,
+      "file": "firestore.rules",
+      "line": 6,
+      "contains": "allow update: if request.auth != null && request.auth.uid == resource.data.ownerId && request.resource.data.ownerId == request.auth.uid;"
+    },
+    {
+      "check": 2,
+      "file": "firestore.rules",
+      "line": 7,
+      "contains": "allow create: if request.auth != null && request.resource.data.ownerId == request.auth.uid;"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "app": "nextjs-flawed",
+  "expected": {
+    "1": "fail",
+    "3": "fail"
+  },
+  "evidence": [
+    {
+      "check": 1,
+      "file": "app/notes/Summarize.tsx",
+      "line": 6,
+      "contains": "process.env.NEXT_PUBLIC_OPENAI_API_KEY"
+    },
+    {
+      "check": 3,
+      "file": "app/notes/actions.ts",
+      "line": 7,
+      "contains": "await db.note.delete({ where: { id } })"
+    }
+  ]
+}

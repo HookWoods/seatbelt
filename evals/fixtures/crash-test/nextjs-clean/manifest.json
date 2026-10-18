@@ -1,0 +1,21 @@
+{
+  "app": "nextjs-clean",
+  "expected": {
+    "1": "pass",
+    "3": "pass"
+  },
+  "evidence": [
+    {
+      "check": 1,
+      "file": "app/api/summarize/route.ts",
+      "line": 6,
+      "contains": "process.env.OPENAI_API_KEY"
+    },
+    {
+      "check": 3,
+      "file": "app/notes/actions.ts",
+      "line": 11,
+      "contains": "where: { id, userId: session.user.id }"
+    }
+  ]
+}

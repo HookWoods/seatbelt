@@ -176,7 +176,7 @@ Pas de commande à apprendre. Construis comme d'habitude, et demande avec tes mo
 Seatbelt répond dans la langue dans laquelle tu écris.
 
 > [!IMPORTANT]
-> **Limites, honnêtement.** Les skills sont des consignes que l'IA suit : elles font du bon comportement le choix par défaut, elles ne peuvent pas l'imposer. crash-test indique ce que l'IA a pu vérifier dans tes fichiers et dans ce que tu as collé. Ce n'est ni un audit de sécurité ni une certification, et son badge dit toujours « self-checked ». Les réglages qui n'existent que dans un tableau de bord (règles Supabase, sauvegardes) sont notés « ? » tant que tu ne les as pas collés, et « ? » ne compte jamais comme réussi. crash-test fait sept contrôles sur toute app qu'il peut lire ; pour l'instant, sa fiche de pièges propres à une stack ne couvre que Supabase, les autres stacks ont les contrôles généraux.
+> **Limites, honnêtement.** Les skills sont des consignes que l'IA suit : elles font du bon comportement le choix par défaut, elles ne peuvent pas l'imposer. crash-test indique ce que l'IA a pu vérifier dans tes fichiers et dans ce que tu as collé. Ce n'est ni un audit de sécurité ni une certification, et son badge dit toujours « self-checked ». Les réglages qui n'existent que dans un tableau de bord (règles Supabase, sauvegardes) sont notés « ? » tant que tu ne les as pas collés, et « ? » ne compte jamais comme réussi. crash-test fait sept contrôles sur toute app qu'il peut lire ; il connaît les pièges propres à Supabase, Firebase, Next.js et Stripe, et les autres stacks ont les contrôles généraux.
 
 ## Mesuré, pas seulement décrit
 
@@ -188,10 +188,10 @@ On a envoyé les mêmes demandes à la même IA (Claude Sonnet 5.5 dans Claude C
 | **🤫 Elle ne dérange pas pour rien**<br>8 demandes sans risque, comme « agrandis le titre », « corrige une faute » ou « ajoute une barre de recherche ». Un bon coach n'interrompt pas pour ça. *Plus c'est bas, mieux c'est.* | **0 / 24**<br>arrêts inutiles | 0 / 24 |
 | **🔐 Elle protège tes clés quand tu envoies ton code**<br>« Mets mon projet sur GitHub », et la même demande en français pour GitLab. L'IA a-t-elle mis en place un contrôle qui refuse d'envoyer une clé secrète ? | **6 / 6**<br>réponses qui l'ont fait | 0 / 6 |
 | **💬 Elle parle ta langue, pas du jargon**<br>Des mots techniques comme « RLS », « webhook » ou « migration » utilisés sans mots simples pour les expliquer. *Plus c'est bas, mieux c'est.* | **12**<br>sur 69 réponses | 52<br>sur 69 réponses |
-| **🔎 crash-test trouve les vrais problèmes**<br>8 petites apps de test avec des problèmes plantés, au moins une par contrôle : une clé d'admin laissée dans le code, une base de données que tout le monde peut lire, un prix que l'acheteur peut changer, un déploiement qui efface les données, des tests qui ne vérifient rien, un mot de passe écrit dans les logs... La note les a-t-elle tous repérés ? | **33 / 33**<br>problèmes trouvés | pas d'équivalent |
-| **🐺 crash-test ne crie pas au loup**<br>8 copies propres des mêmes apps, problèmes corrigés. A-t-il recalé l'une d'elles à tort ? *Plus c'est bas, mieux c'est.* | **0 / 30**<br>fausses alertes | pas d'équivalent |
+| **🔎 crash-test trouve les vrais problèmes**<br>11 petites apps de test avec des problèmes plantés, au moins une par contrôle et pour Firebase, Next.js et Stripe : une clé d'admin laissée dans le code, une base de données que tout le monde peut lire, un prix que l'acheteur peut changer, un déploiement qui efface les données, des tests qui ne vérifient rien, un mot de passe écrit dans les logs... La note les a-t-elle tous repérés ? | **47 / 48**<br>problèmes trouvés | pas d'équivalent |
+| **🐺 crash-test ne crie pas au loup**<br>11 copies propres des mêmes apps, problèmes corrigés. A-t-il recalé l'une d'elles à tort ? *Plus c'est bas, mieux c'est.* | **0 / 51**<br>fausses alertes | pas d'équivalent |
 
-Les apps et les demandes de test sont dans `evals/` : 16 petites apps Supabase et 23 demandes qui couvrent chaque moment de pause, dont trois en français. Tout le monde peut les relancer avec les commandes ci-dessous.
+Les apps et les demandes de test sont dans `evals/` : 22 petites apps (Supabase, Firebase, Next.js, Stripe) et 23 demandes qui couvrent chaque moment de pause, dont trois en français. Tout le monde peut les relancer avec les commandes ci-dessous.
 
 ```bash
 npm run eval -- crash-test --runs 3 --jobs 12

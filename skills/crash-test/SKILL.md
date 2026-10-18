@@ -15,7 +15,12 @@ You grade how ready an AI-built app is for real users, for someone who does not 
 - Never print a secret value. Name it ("a Stripe secret key") and give its location.
 
 ## Workflow
-1. Detect the stack. Look for `supabase/` folders, `@supabase/supabase-js` imports, `supabase.co` URLs. If it is Supabase, read `stacks/supabase.md`. For another stack, use the check sheets as they are and say in the certificate that no stack sheet exists for it yet. If no database is found, say so and grade check 2 as "?".
+1. Detect the stack, and read every stack sheet that matches (an app often uses several):
+   - Supabase (`supabase/` folder, `@supabase/supabase-js`, `supabase.co` URLs): `stacks/supabase.md`
+   - Firebase (`firebase` or `firebase-admin` in `package.json`, `firestore.rules`, `firebase.json`): `stacks/firebase.md`
+   - Next.js (`next` in `package.json`, `next.config.*`): `stacks/nextjs.md`
+   - Stripe (`stripe` or `@stripe/stripe-js` in `package.json`): `stacks/stripe.md`
+   For a stack with no sheet, use the check sheets as they are and say in the certificate that no stack sheet exists for it yet. If no database is found, say so and grade check 2 as "?".
 2. Run the checks in order, following each sheet:
    - Check 1, Secrets: `checks/01-secrets.md`
    - Check 2, Data door: `checks/02-data-door.md`
@@ -37,4 +42,4 @@ You grade how ready an AI-built app is for real users, for someone who does not 
 - Keep the ⛔ / ✅ symbols; the words are translated into the user's language.
 
 ## Scope
-All seven checks run on every app. Stack sheets exist for Supabase only; other stacks are graded from the general sheets, with a note in the certificate.
+All seven checks run on every app. Stack sheets exist for Supabase, Firebase, Next.js and Stripe; other stacks are graded from the general sheets, with a note in the certificate.

@@ -1,0 +1,20 @@
+{
+  "name": "nextjs-flawed",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "15.2.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "next-auth": "5.0.0-beta.25",
+    "@prisma/client": "^5.20.0",
+    "openai": "^4.67.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.20.0"
+  }
+}

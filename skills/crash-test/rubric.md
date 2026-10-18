@@ -12,7 +12,7 @@ When you cannot see the value, treat it as live (for example when only the varia
 - A: no secret found in code, in files sent to the browser, or in committed files; secrets are read only on the server; `.env` is in `.gitignore`.
 - B: no live secret exposed, but a minor hygiene issue (for example no `.env.example`, or a test-mode key in a committed file that is not shipped to the browser).
 - C: a test-mode secret is shipped to the browser.
-- D: a live secret is in a committed file that is not shipped to the browser.
+- D: a live secret is in a committed file that is not shipped to the browser. An env file that `.gitignore` does not list is committed: if it holds a secret variable, grade D at best, even when the value looks empty or fake.
 - F: a live secret is shipped to the browser (hardcoded in client code or behind `VITE_`, `NEXT_PUBLIC_`, `EXPO_PUBLIC_`, `REACT_APP_`), or a Supabase service_role key is anywhere in client code.
 - ?: the project files are not available.
 
@@ -20,8 +20,8 @@ When you cannot see the value, treat it as live (for example when only the varia
 - A: every table with users' data has RLS on, with policies for each action that compare `auth.uid()` with the owner column; verified from migrations or pasted SQL.
 - B: as A, but one non-sensitive table (public content) is readable by everyone on purpose, and the user confirmed it.
 - C: RLS is on but one action (insert, update or delete) has no owner check on a table with users' data.
-- D: a policy lets every logged-in user read or change other users' rows.
-- F: RLS is off on a table with users' data, or a policy uses `using (true)` / `with check (true)` for users' data, or anonymous visitors can read users' data.
+- D: a policy lets every logged-in user read or change other users' rows (Firebase: `if request.auth != null` on users' data).
+- F: RLS is off on a table with users' data, or a policy uses `using (true)` / `with check (true)` for users' data, or anonymous visitors can read users' data (Firebase: `if true`, or test-mode rules that open the data until a date).
 - ?: no migrations in the repo, or a table the app uses has no migration, and the user did not paste the SQL results.
 
 ## Check 3: Server doors
@@ -35,7 +35,7 @@ When you cannot see the value, treat it as live (for example when only the varia
 
 ## Check 4: Payments
 - A: price from the server, webhook signature verified, access granted only by the server after payment, the same event cannot credit twice, and cancel or refund removes what it unlocked.
-- B: as A, but the same-event or cancel and refund handling is missing and written down as a known limit.
+- B: as A, with a gap that cannot unlock anything without paying: the same-event or cancel and refund handling written down as a known limit, or a robustness issue such as an event marked handled before the update finishes.
 - C: as A, but the same-event or cancel and refund handling is missing and not written down.
 - D: the webhook is verified, but access is also granted before the server confirms payment (for example on the success page).
 - F: the price, amount or plan comes from the browser, or the webhook is trusted without verifying its signature, or access is granted only by the browser or a URL parameter.
