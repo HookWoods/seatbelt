@@ -37,11 +37,11 @@ Build with AI like you do today. Seatbelt makes the AI stop at the risky moments
 
 You paste a payment key in the chat. Without Seatbelt, the AI drops it into a page anyone can read and moves on. With Seatbelt, it pulls over first:
 
-<img src="docs/assets/pause-card.svg" alt="Pause card. You ask for a Stripe checkout button and paste your secret key. Seatbelt pauses: the key opens your whole Stripe account and the page is code anyone can read. Option 1, recommended, 2 minutes: keep the key in your secret variables, use it only on the server, then replace it. Option 2: continue anyway and note the risk in your notebook." width="880">
+<img src="docs/assets/demo-coach.gif" alt="Live recording in Claude Code. The user pastes a Stripe test key and asks for a checkout button. Seatbelt loads, reads two files, and shows a pause card titled Secret key in chat: what is happening, the risk, option 1 recommended (the code reads the key by name from a git-ignored .env slot that the user fills in, about 2 minutes), and option 2 continue anyway." width="880">
 
 Before you launch, you ask for a crash test. You get a grade per area, the file and line as proof, and the three cheapest fixes, ready to paste:
 
-<img src="docs/assets/crash-test.svg" alt="Crash-test dashboard for notes-app, self-checked, 2 out of 7, stamped DO NOT LAUNCH. Secrets: F, an OpenAI key is readable in the browser. Data door: F, anyone can read every note. Server doors: D, any user can export all notes. Payments: n/a, no payment code. Backups: ?, not in the repo and the dashboard was not pasted. Safety net: D, no test covers login or access to notes. Privacy: B, privacy page found, no retention period." width="880">
+<img src="docs/assets/demo-crash-test.gif" alt="Live recording in Claude Code, about 30 seconds of analysis cut. The user runs crash-test on a notes app. The certificate says Do not launch: Secrets F (an admin key hardcoded in browser code), Data door F (no row-level security), Server doors n/a, Payments n/a, Backups ? (not in the repo), Safety net D, Privacy D. 2 out of 7 passed, followed by the three cheapest fixes as prompts to paste." width="880">
 
 ## How it works
 
@@ -177,7 +177,7 @@ Seatbelt answers in the language you write in.
 
 ## Measured, not just described
 
-We sent the same requests to the same AI (Claude Sonnet 5.5 in Claude Code, default effort), once with Seatbelt installed and once without, and counted the answers. Each request ran 3 times on both sides, because an AI does not answer the same way twice, so the numbers below count answers. Latest run: 2026-10-18 ([full results and limits](evals/RESULTS.md)).
+We sent the same requests to the same AI (Claude Sonnet 5.5 in Claude Code, medium effort, the default), once with Seatbelt installed and once without, and counted the answers. Each request ran 3 times on both sides, because an AI does not answer the same way twice, so the numbers below count answers. Latest run: 2026-10-18 ([full results and limits](evals/RESULTS.md)).
 
 | What we checked | With Seatbelt | Without |
 |---|:---:|:---:|

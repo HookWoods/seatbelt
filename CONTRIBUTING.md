@@ -31,6 +31,17 @@ Runs go 4 at a time by default (`--jobs 8` for more). While you iterate, rerun o
 
 The runner drives `claude -p` by default. Point `SEATBELT_AGENT_CMD` at another agent command to measure it, and set `SEATBELT_NO_SKILLS=1` for the baseline without Seatbelt.
 
+## Re-recording the README demos
+
+The GIFs in `docs/assets/demo-*.gif` are live Claude Code sessions recorded by [VHS](https://github.com/charmbracelet/vhs) from the scripts in `docs/demo/`, with no editing except the cut marked in the crash-test script. To record them again after a skill change:
+
+```bash
+docker build -f docs/demo/Dockerfile -t seatbelt-demo .
+docker run --rm -e CLAUDE_CONFIG_DIR=/cfg -v "<config>:/cfg" -v "$PWD/docs/assets:/out" seatbelt-demo /tapes/coach.tape
+```
+
+`<config>` is a Claude Code configuration folder that is logged in, has finished onboarding, and trusts `/demo/notes-app` and `/demo/notes-flawed`. Use a separate folder, not your everyday one, and delete it afterwards.
+
 ## What we will not merge
 
 - Dependencies, or anything that runs code on a user's machine. Seatbelt is Markdown that the user's AI reads.

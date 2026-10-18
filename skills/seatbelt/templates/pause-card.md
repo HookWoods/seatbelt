@@ -6,7 +6,7 @@ Use exactly this shape, in the user's language. One pause per message.
 ⏸️ Pause: Secret key visible
 What is happening: your Stripe key is in code anyone can see.
 Risk if we continue: someone can make payments as you.
-1️⃣ I move it to a locked drawer (secret variables) and show you how to change it (2 min, recommended)
+1️⃣ I make the code read it from a locked drawer (secret variables); you paste a new key there yourself, and I show you how (2 min, recommended)
 2️⃣ Continue anyway, and I note the risk in your notebook
 ```
 

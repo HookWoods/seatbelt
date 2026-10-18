@@ -205,3 +205,10 @@ test('crash-test routes every stack sheet, and each fixture stack has a flawed a
     assert.ok(apps.includes(stack + '-flawed') && apps.includes(stack + '-clean'), stack)
   }
 })
+
+test('secrets: the coach prepares the slot, the user pastes the value', () => {
+  const security = fs.readFileSync('skills/seatbelt/references/security.md', 'utf8')
+  assert.match(security, /you never handle a secret's value/i)
+  assert.match(security, /never offer to store the key yourself/i)
+  assert.doesNotMatch(fs.readFileSync('skills/seatbelt/templates/pause-card.md', 'utf8'), /I move it to/)
+})

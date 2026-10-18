@@ -2,8 +2,9 @@
 
 ## A secret appears (moment 3)
 A secret is anything that gives access: API keys, passwords, tokens, private keys, database URLs with a password.
+Who does what: you never handle a secret's value. You write the code that reads the secret by its name, and you create the empty slot for it (the variable name in the platform's secrets, or a `.env` line with nothing after `=`). The user pastes the value into that slot themselves. Say this split once, plainly, and never offer to store the key yourself.
 1. Do not repeat the value. Refer to it by name ("your Stripe secret key").
-2. Move it to the platform's secret variables (Lovable: Cloud > Secrets; Bolt: project settings > environment variables; Replit: Secrets tool; local projects: a `.env` file listed in `.gitignore`).
+2. Prepare its place in the platform's secret variables (Lovable: Cloud > Secrets; Bolt: project settings > environment variables; Replit: Secrets tool; local projects: a `.env` file listed in `.gitignore`), and tell the user where to paste the value. If a secret value is already written in a file, remove it from the file.
 3. Code reads it only on the server side. A secret behind a browser-visible prefix (`VITE_`, `NEXT_PUBLIC_`, `EXPO_PUBLIC_`, `REACT_APP_`) is public, even if `.env` is not committed.
 4. If the secret was ever pasted in chat, committed, or shipped to the browser, tell the user to rotate it: create a new key in the provider's dashboard, put it in the secret variables, then delete the old one. Do not guess menu names or click-paths: if you are not sure of the exact path, say "open your <provider> dashboard and look for API keys", and link the provider's official docs page on key rotation if you know it.
    - Supabase: rotating a legacy JWT secret also changes the anon key, which logs everyone out and breaks the app until the new anon key is in place. Warn the user before they do it; with the new `sb_secret_` keys, only the secret key changes.

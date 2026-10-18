@@ -21,7 +21,7 @@ What changed for people who use Seatbelt, newest first.
 - **seatbelt-guard**, a separate Claude Code plugin that stops commits and pushes carrying a secret. It runs code on your computer, so it is opt-in and not part of the main skills.
 
 ### Measured
-On Claude Sonnet 5.5, 3 runs per request ([full results](evals/RESULTS.md)):
+On Claude Sonnet 5.5 at medium effort, 3 runs per request ([full results](evals/RESULTS.md)):
 - The coach stopped before 45 of 45 risky requests (0 of 45 without Seatbelt), paused on 0 of 24 simple ones, and set up secret protection on 6 of 6 first pushes (0 of 6 without).
 - crash-test caught 47 of 48 planted flaws across 22 test apps, with 0 false alarms in 51 checks that should pass.
 

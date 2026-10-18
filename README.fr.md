@@ -38,11 +38,11 @@ Construis avec l'IA comme aujourd'hui. Seatbelt fait s'arrêter l'IA aux moments
 
 Tu colles une clé de paiement dans le chat. Sans Seatbelt, l'IA la met dans une page que tout le monde peut lire et continue. Avec Seatbelt, elle se range d'abord sur le côté :
 
-<img src="docs/assets/pause-card-fr.svg" alt="Carte de pause. Tu demandes un bouton de paiement Stripe et colles ta clé secrète. Seatbelt fait une pause : la clé ouvre tout ton compte Stripe et la page est du code que tout le monde peut lire. Option 1, recommandée, 2 minutes : ranger la clé dans tes variables secrètes, ne l'utiliser que côté serveur, puis la remplacer. Option 2 : continuer quand même et noter le risque dans ton carnet." width="880">
+<img src="docs/assets/demo-coach-fr.gif" alt="Enregistrement en direct dans Claude Code. L'utilisateur colle une clé Stripe de test et demande un bouton de paiement. Seatbelt se charge, lit deux fichiers et affiche une carte de pause : ce qui se passe, le risque, l'option 1 recommandée (le code lit la clé par son nom dans un emplacement .env ignoré par git, que l'utilisateur remplit lui-même) et l'option 2 continuer quand même." width="880">
 
 Avant la mise en ligne, tu demandes un crash test. Tu obtiens une note par domaine, le fichier et la ligne en preuve, et les trois corrections les moins chères, prêtes à coller :
 
-<img src="docs/assets/crash-test-fr.svg" alt="Tableau de bord crash-test pour notes-app, vérifié par l'IA, 2 sur 7, tamponné NE PAS LANCER. Secrets : F, une clé OpenAI est lisible dans le navigateur. Porte des données : F, tout le monde lit toutes les notes. Portes du serveur : D, tout compte exporte toutes les notes. Paiements : n/a, pas de paiement. Sauvegardes : ?, absent du repo et tableau de bord non collé. Filet de tests : D, aucun test sur la connexion ni l'accès aux notes. Vie privée : B, page trouvée, sans durée de conservation." width="880">
+<img src="docs/assets/demo-crash-test-fr.gif" alt="Enregistrement en direct dans Claude Code, environ 30 secondes d'analyse coupées. L'utilisateur lance crash-test sur une app de notes. Le certificat dit Ne pas lancer : Secrets F (clé admin dans le code du navigateur), Porte des données F (pas de règles d'accès), Portes du serveur n/a, Paiements n/a, Sauvegardes ?, Filet de tests D, Vie privée D. 2 sur 7, puis les trois corrections les moins chères." width="880">
 
 ## Comment ça marche
 
@@ -178,7 +178,7 @@ Seatbelt répond dans la langue dans laquelle tu écris.
 
 ## Mesuré, pas seulement décrit
 
-On a envoyé les mêmes demandes à la même IA (Claude Sonnet 5.5 dans Claude Code, effort par défaut), une fois avec Seatbelt et une fois sans, puis on a compté les réponses. Chaque demande a tourné 3 fois des deux côtés, parce qu'une IA ne répond jamais deux fois pareil : les chiffres comptent donc des réponses. Dernier run : 2026-10-18 ([résultats complets et limites](evals/RESULTS.md)).
+On a envoyé les mêmes demandes à la même IA (Claude Sonnet 5.5 dans Claude Code, effort medium, le réglage par défaut), une fois avec Seatbelt et une fois sans, puis on a compté les réponses. Chaque demande a tourné 3 fois des deux côtés, parce qu'une IA ne répond jamais deux fois pareil : les chiffres comptent donc des réponses. Dernier run : 2026-10-18 ([résultats complets et limites](evals/RESULTS.md)).
 
 | Ce qu'on a vérifié | Avec Seatbelt | Sans |
 |---|:---:|:---:|
