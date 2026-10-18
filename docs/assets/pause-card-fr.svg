@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="330" viewBox="0 0 880 330" role="img" aria-label="PAUSE: Clé secrète visible">
+<rect width="880" height="330" rx="18" fill="#0E1A1C"/>
+<rect x="20" y="18" width="840" height="36" rx="10" fill="#16252A"/>
+<text x="38" y="42" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="15" fill="#9DB7BB">Toi : Ajoute un bouton de paiement Stripe. Voici ma clé : sk_live_••••••••</text>
+<rect x="20" y="66" width="840" height="42" rx="10" fill="#F5C518"/>
+<rect x="34" y="78" width="6" height="18" rx="1.5" fill="#111111"/><rect x="45" y="78" width="6" height="18" rx="1.5" fill="#111111"/>
+<text x="64" y="94" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2" fill="#111111">PAUSE</text>
+<text x="136" y="94" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#111111">Clé secrète visible</text>
+<text x="38" y="140" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#EAF4F4">Ce qui se passe : cette clé ouvre tout ton compte Stripe, et la page est du code que tout le monde peut lire.</text>
+<text x="38" y="166" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#EAF4F4">Risque si on continue : quelqu'un copie la clé et fait des paiements ou des remboursements à ta place.</text>
+<rect x="20" y="186" width="840" height="56" rx="12" fill="#1F6F78"/>
+<circle cx="50" cy="214" r="14" fill="#EAF4F4"/><text x="50" y="219" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#1F6F78">1</text>
+<text x="76" y="210" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#EAF4F4">Ranger la clé dans tes variables secrètes, ne l'utiliser que côté serveur, puis la remplacer</text>
+<text x="76" y="231" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#7FD1D8">2 min  ·  recommandé</text>
+<rect x="20" y="254" width="840" height="56" rx="12" fill="none" stroke="#2C4248" stroke-width="2"/>
+<circle cx="50" cy="282" r="14" fill="#2C4248"/><text x="50" y="287" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="800" fill="#EAF4F4">2</text>
+<text x="76" y="287" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#9DB7BB">Continuer quand même, et noter le risque dans ton carnet</text>
+</svg>

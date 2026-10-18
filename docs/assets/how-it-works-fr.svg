@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="200" viewBox="0 0 880 200" role="img" aria-label="Construis comme d'habitude, Pause aux moments à risque, Le carnet suit tout, Crash-test avant le lancement">
+<rect width="880" height="200" rx="18" fill="#0E1A1C"/>
+<line x1="110" y1="70" x2="770" y2="70" stroke="#2C4248" stroke-width="10" stroke-linecap="round"/>
+<line x1="110" y1="70" x2="770" y2="70" stroke="#F5C518" stroke-width="2" stroke-dasharray="14 12"/>
+<circle cx="110" cy="70" r="34" fill="#1F6F78"/><path d="M96 78 l10 -22 h8 l10 22 z" fill="#EAF4F4"/><rect x="94" y="78" width="32" height="6" rx="2" fill="#EAF4F4"/>
+<rect x="304" y="44" width="52" height="52" rx="6" fill="#F5C518" transform="rotate(45 330 70)"/><rect x="321" y="58" width="6" height="24" rx="1.5" fill="#111111"/><rect x="333" y="58" width="6" height="24" rx="1.5" fill="#111111"/>
+<rect x="520" y="38" width="60" height="64" rx="8" fill="#7FD1D8"/><rect x="532" y="54" width="36" height="5" rx="2" fill="#0F3D43"/><rect x="532" y="66" width="36" height="5" rx="2" fill="#0F3D43"/><rect x="532" y="78" width="24" height="5" rx="2" fill="#0F3D43"/>
+<rect x="766" y="34" width="5" height="70" fill="#EAF4F4"/><rect x="771" y="36" width="8" height="8" fill="#EAF4F4"/><rect x="787" y="36" width="8" height="8" fill="#EAF4F4"/><rect x="803" y="36" width="8" height="8" fill="#EAF4F4"/><rect x="779" y="44" width="8" height="8" fill="#EAF4F4"/><rect x="795" y="44" width="8" height="8" fill="#EAF4F4"/><rect x="771" y="52" width="8" height="8" fill="#EAF4F4"/><rect x="787" y="52" width="8" height="8" fill="#EAF4F4"/><rect x="803" y="52" width="8" height="8" fill="#EAF4F4"/><rect x="779" y="60" width="8" height="8" fill="#EAF4F4"/><rect x="795" y="60" width="8" height="8" fill="#EAF4F4"/><rect x="771" y="36" width="40" height="32" fill="none" stroke="#EAF4F4" stroke-width="1.5"/>
+<text x="110" y="140" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Construis comme d'habitude</text>
+<text x="110" y="164" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9DB7BB">dans Lovable, Bolt, Claude...</text>
+<text x="330" y="140" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Pause aux moments à risque</text>
+<text x="330" y="164" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9DB7BB">deux choix clairs</text>
+<text x="550" y="140" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Le carnet suit tout</text>
+<text x="550" y="164" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9DB7BB">PROJECT.md, mots simples</text>
+<text x="770" y="140" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#EAF4F4">Crash-test avant le lancement</text>
+<text x="770" y="164" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#9DB7BB">note, preuves, correctifs</text>
+</svg>

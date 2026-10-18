@@ -1,15 +1,15 @@
 <div align="center">
 
-# Seatbelt
+<img src="docs/assets/banner.svg" alt="Seatbelt: a patient senior developer inside the AI you build with. Works with Lovable, Bolt, Replit, Claude, Cursor and Codex." width="880">
 
-**Vibe coder should no longer be an insult.**
+### Vibe coder should no longer be an insult.
 
-A patient senior developer inside the AI you already build with.
-Seatbelt keeps your app safe and clean while you build, explains every risky choice in plain words, and tells you how ready your app is before you launch.
+Build with AI like you do today. Seatbelt makes the AI stop at the risky moments, explain them in plain words, and keep your app clean and safe until launch day.
 
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1F6F78?style=flat-square" alt="MIT license"></a>
-<img src="https://img.shields.io/badge/works%20with-Lovable%20%C2%B7%20Bolt%20%C2%B7%20Replit%20%C2%B7%20Claude%20%C2%B7%20Cursor%20%C2%B7%20Codex-1F6F78?style=flat-square" alt="Works with Lovable, Bolt, Replit, Claude, Cursor, Codex">
-<img src="https://img.shields.io/badge/no%20install%20to%20run-just%20Markdown-1F6F78?style=flat-square" alt="Nothing to install: plain Markdown skills">
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1F6F78?style=for-the-badge" alt="MIT license"></a>
+<img src="https://img.shields.io/badge/no%20coding%20needed-F5C518?style=for-the-badge&labelColor=111111" alt="No coding needed">
+<img src="https://img.shields.io/badge/runs%20on-6%20AI%20builders-0F3D43?style=for-the-badge" alt="Runs on 6 AI builders">
+<img src="https://img.shields.io/badge/install-1%20link-2EA043?style=for-the-badge" alt="Install with one link">
 
 [English](README.md) · [Français](README.fr.md)
 
@@ -34,116 +34,87 @@ Seatbelt keeps your app safe and clean while you build, explains every risky cho
 >
 > "You don't have backups, you have hope." (r/vibecoding)
 
-## See it
+## Watch it brake
 
-You ask your builder for a feature and paste a key in the chat. Without Seatbelt, the AI puts the key in the page and moves on. With Seatbelt, it stops first:
+You paste a payment key in the chat. Without Seatbelt, the AI drops it into a page anyone can read and moves on. With Seatbelt, it pulls over first:
 
-```
-You: Add a Stripe checkout button. Here is my key: sk_live_...
+<img src="docs/assets/pause-card.svg" alt="Pause card. You ask for a Stripe checkout button and paste your secret key. Seatbelt pauses: the key opens your whole Stripe account and the page is code anyone can read. Option 1, recommended, 2 minutes: keep the key in your secret variables, use it only on the server, then replace it. Option 2: continue anyway and note the risk in your notebook." width="880">
 
-⏸️ Pause: Secret key visible
-What is happening: this key gives full access to your Stripe account, and the page you asked for is code anyone can read.
-Risk if we continue: someone can copy the key and make payments or refunds as you.
-1️⃣ I keep the key in your project's secret variables and use it only on the server, then show you how to replace it (2 min, recommended)
-2️⃣ Continue anyway, and I note the risk in your notebook
-```
+Before you launch, you ask for a crash test. You get a grade per area, the file and line as proof, and the three cheapest fixes, ready to paste:
 
-Before you launch, ask for a crash test:
+<img src="docs/assets/crash-test.svg" alt="Crash-test dashboard for notes-app, self-checked, 0 out of 7, stamped DO NOT LAUNCH. Secrets: grade F, an OpenAI key is readable in the browser at src/lib/ai.js line 1. Data door: grade F, anyone can read every note, 001_notes.sql line 10. Coming next: server checks, payments, backups, safety net, privacy." width="880">
 
-```
-# crash-test certificate: notes-app, 2026-10-18
-⛔ Do not launch
+## How it works
 
-| # | Check     | Grade | Evidence                                              |
-|---|-----------|-------|-------------------------------------------------------|
-| 1 | Secrets   | F     | src/lib/ai.js:1 (OpenAI key readable in the browser)  |
-| 2 | Data door | F     | supabase/migrations/001_notes.sql:10 (anyone can read every note) |
+<img src="docs/assets/how-it-works.svg" alt="Four steps on a road: build as usual in Lovable, Bolt or Claude; Seatbelt pauses at risky moments with two clear choices; the notebook PROJECT.md keeps track in plain words; crash-test grades the app before launch with proof and fixes." width="880">
 
-Result: 0/2 checks passed (this version covers checks 1 and 2 of 7)
+1. **You build as usual.** Same tool, same prompts. Seatbelt is a set of instructions the AI reads, so there is nothing new to learn.
+2. **It brakes at the risky moments,** and only there: a secret in the code, a change to login, payments or users' data, a fix that failed twice, a file that grew too big, a pile of useless tests. You get two choices and the cost of each.
+3. **The notebook keeps track.** `PROJECT.md` lists what your app does, where things are, your decisions, your services and the risks you accepted. The AI reads it first, so it stops forgetting yesterday.
+4. **The crash test grades your app** before real users touch it, with proof for every grade.
 
-The 3 cheapest fixes
-1. "Move the OpenAI call into a server function that reads OPENAI_API_KEY from the project secrets..." (5 min)
-2. "Replace the 'anyone can read' rule on notes with one that lets each user read only their own notes..." (2 min)
-3. ...
-```
+> [!NOTE]
+> Small changes (a color, a text, a layout tweak) never trigger a pause. If you choose "continue anyway", it does exactly that and writes the risk in your notebook so you can review it before launch.
 
-## Why this exists
+## What it protects you from
 
-AI builders let anyone ship an app in a weekend, and the apps work. Under the hood they stay prototypes:
-
-- 170 of 1,645 Lovable apps scanned in 2025 left users' data readable by anyone (CVE-2025-48757).
-- A developer who cleans up AI-built apps for a living lists the same seven problems in almost every project: keys in the code, security only on the screen, users who can read each other's data, no error tracking, backups never tested, prices trusted from the browser, and features that silently rewrite each other.
-- Developers refuse to take over these projects, and a paid "vibe code cleanup" market has appeared.
-
-Most tools that try to fix this are scanners for developers: they run at the end and speak jargon. Seatbelt works while you build, in the tool you already use, in words you understand.
-
-## What you get
-
-| Skill | What it does |
-|---|---|
-| `seatbelt` | The coach. Applies good practice by default, pauses at risky moments with two clear choices, explains every choice by cost, risk or time, and keeps `PROJECT.md`, a plain-language notebook of your app. |
-| `crash-test` | The readiness grade. Checks your app one area at a time, grades each from A to F with the file and line as proof, gives the 3 cheapest fixes as prompts you can paste, and keeps a history so you can watch the grade rise. |
-
-### When the coach pauses
-
-| Moment | What happens |
-|---|---|
-| A key or password appears in the chat or in the code | It moves the key to a safe place and tells you how to replace it. |
-| A change touches login, payment or your users' data | It makes a save point first, changes one thing, then checks it still works. |
-| The same problem failed to fix twice | It stops guessing, says what it thinks is wrong, and goes back to the last save point. |
-| A file gets too big, or the same thing exists twice | It offers to split the file or keep one version. |
-| You ask for "tests for everything" | It writes the few tests that matter instead of hundreds that check nothing. |
-
-Small changes (text, colors, layout) never trigger a pause. If you say "continue anyway", it does, and writes the risk in your notebook so you can review it before launch.
-
-### What it does without asking
-
-- Keeps functions and files small, and writes no code "for later".
-- Reuses what already exists instead of creating a second version.
-- Checks input where it enters the app, and never hides an error behind a fake value.
-- Gives every screen a loading, empty and error state.
-- Runs the standard formatter, linter and type checker for your language.
-- Re-reads its own changes before saying "done", and tells you what it removed.
-
-### The notebook
-
-`PROJECT.md` sits at the root of your project. The AI reads it first at every session, so it stops forgetting what you decided yesterday. It holds what the app does, where things are, the decisions you made, the services you pay for, the names of your secrets (never their values), the risks you accepted and your crash-test history. Hand it to a developer and they understand your project in five minutes.
+| | Without Seatbelt | With Seatbelt |
+|---|---|---|
+| 🔑 Keys and passwords | Pasted into code anyone can read | Kept in your secret variables, and you are told how to replace a leaked one |
+| 🚪 Your users' data | One user can read everyone else's data | A rule at the data door, tested with two accounts |
+| 💳 Payments | The price comes from the browser, so it can be changed | The price is checked on the server |
+| 🔁 Fix loops | "Fix one thing, break three others" | A save point before every risky change, and a stop after two failed fixes |
+| 🧱 Messy code | Copies of the same thing, giant files, code "for later" | Small files, one version of each thing, nothing unused |
+| 🧪 Tests | None, or hundreds that check nothing | The few tests that guard login, payment and data |
+| 🧭 Understanding | "I'm paying to not understand my own app" | A plain-language notebook you can hand to a developer |
 
 ## Install
 
-Each skill is one folder. Install `seatbelt` first; add `crash-test` when you want the grade.
+Each skill is one folder: `seatbelt` is the coach, `crash-test` is the grade. Pick your tool.
 
-### Lovable
-1. Open your workspace settings, then **Skills**, then **Add from GitHub** (workspace admins only).
-2. Paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then repeat with `.../skills/crash-test`.
-3. Open your project's **Knowledge** and paste the three lines below.
+<details open>
+<summary><b>Claude Code, Claude Desktop and Claude.ai</b></summary>
 
-### Bolt
-1. Open **Knowledge**, then **Skills**, then **Import from GitHub**.
-2. Import `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then `.../skills/crash-test` (Bolt imports one skill at a time).
-3. Paste the three lines below into your project Knowledge.
+In **Plugins**, click **Add**, then **Add a marketplace**, and enter `HookWoods/seatbelt`. Install **seatbelt** from it. In Claude Code you can also type:
 
-### Replit
-1. Click **Use a skill** and paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`.
-2. Repeat with `.../skills/crash-test`.
-
-### Claude Code
 ```bash
 /plugin marketplace add HookWoods/seatbelt
 /plugin install seatbelt@seatbelt
 ```
+</details>
 
-### Claude.ai and Claude Desktop
-Download this repository as a ZIP, zip the `skills/seatbelt` folder on its own, then upload it in **Settings**, **Capabilities**, **Skills**. Do the same for `skills/crash-test`.
+<details>
+<summary><b>Lovable</b></summary>
 
-### Cursor, GitHub Copilot, Codex, Gemini CLI, OpenCode
+1. Workspace settings, **Skills**, **Add from GitHub** (workspace admins).
+2. Paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then the same link ending in `crash-test`.
+3. Paste the three lines below into your project **Knowledge**.
+</details>
+
+<details>
+<summary><b>Bolt</b></summary>
+
+1. **Knowledge**, **Skills**, **Import from GitHub**.
+2. Import `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then the `crash-test` link (Bolt imports one skill at a time).
+3. Paste the three lines below into your project Knowledge.
+</details>
+
+<details>
+<summary><b>Replit</b></summary>
+
+Click **Use a skill**, paste `https://github.com/HookWoods/seatbelt/tree/main/skills/seatbelt`, then do the same with the `crash-test` link.
+</details>
+
+<details>
+<summary><b>Cursor, GitHub Copilot, Codex, Gemini CLI, OpenCode</b></summary>
+
 ```bash
 npx skills add HookWoods/seatbelt
 ```
 Or copy the two folders from `skills/` into `.agents/skills/` in your project.
+</details>
 
-### The three lines
-Paste this into your project Knowledge (Lovable, Bolt) or into `AGENTS.md` / `CLAUDE.md`, so the coach is used on every request:
+**The three lines.** Paste them into your project Knowledge (Lovable, Bolt) or into `AGENTS.md` / `CLAUDE.md`, so the coach rides along on every request:
 
 ```
 This project uses Seatbelt.
@@ -151,50 +122,67 @@ Use the seatbelt skill for every request in this project.
 Read PROJECT.md first if it exists.
 ```
 
-## Use it
+## Talk to it
 
-You do not need to learn commands. Build as usual; the coach steps in when it matters. A few things you can ask:
+No commands to learn. Build as usual, and ask in your own words when you want something:
 
-- "Run crash-test on my app."
-- "Explain what you just changed, in plain words."
-- "Update my notebook."
-- "What did I accept as a risk so far?"
-- "I want to hand this project to a developer. Prepare it."
+| You say | You get |
+|---|---|
+| "Run crash-test on my app." | The dashboard above, with the 3 cheapest fixes |
+| "Explain what you just changed, in plain words." | One sentence, then the why, details only if you ask |
+| "What risks did I accept so far?" | The list from your notebook, with dates |
+| "I want to hand this to a developer. Prepare it." | A brief from your notebook: what the app does, where things are, secrets by name, accepted risks |
 
 Seatbelt answers in the language you write in.
 
-## Honest limits
+> [!IMPORTANT]
+> **Honest limits.** Skills are instructions the AI follows: they make good behavior the default, they cannot force it. crash-test reports what the AI could verify in your files and in what you pasted. It is not a security audit or a certification, and its badge always says "self-checked". Settings that live only in a dashboard (Supabase rules, backups) are graded "?" until you paste them, and "?" never counts as a pass. This first version grades secrets and the data door for Supabase apps; server checks, payments, backups, a test safety net and privacy come next.
 
-- Skills are instructions the AI follows. They make good behavior the default; they cannot force it.
-- crash-test reports what the AI could verify in your files and in what you pasted. It is not a security audit or a certification, and the badge always says "self-checked".
-- Some settings live only in your dashboards (for example Supabase rules and backups). crash-test gives you the exact clicks or query to run and grades "?" until you paste the result. "?" never counts as a pass.
-- This first version grades secrets and the data door for Supabase apps. Server-side checks, payments, backups, a test safety net and privacy come next.
+## Measured, not just described
 
-## Benchmark
-
-Both skills are measured, not just described. `evals/` holds six small Supabase apps (three with planted flaws, three clean twins) and ten coach scenarios, including requests in French and requests that must not trigger a pause. The runner drives a real agent with and without Seatbelt and reports flaws caught, false alarms, pauses at the right moment and pauses on trivial requests.
+`evals/` holds six small Supabase apps (three with planted flaws, three clean twins) and ten coach scenarios, including requests in French and requests that must not trigger a pause. The runner drives a real agent with and without Seatbelt and counts flaws caught, false alarms, pauses at the right moment and pauses on trivial requests.
 
 ```bash
 npm run eval -- crash-test --runs 3
 npm run eval -- coach --runs 3
-SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3   # same run without Seatbelt
+SEATBELT_NO_SKILLS=1 npm run eval -- coach --runs 3   # the same run without Seatbelt
 ```
 
 ## FAQ
 
-**Do I need to know how to code?** No. That is the point. Seatbelt explains every choice by what it costs, what can go wrong or how long it takes.
+<details>
+<summary><b>Do I need to know how to code?</b></summary>
 
-**Will it slow me down?** It pauses only at the moments listed above, at most once per message, and never twice for the same thing in a session. Small changes go straight through.
+No. That is the point. Every choice is explained by what it costs, what can go wrong or how long it takes.
+</details>
 
-**Does it cost more tokens?** Only the short main file is loaded on every request; the detailed sheets load only when a moment needs them. The notebook also saves the AI from exploring your whole project at each session.
+<details>
+<summary><b>Will it slow me down?</b></summary>
 
-**Can I use it on an existing project?** Yes. The coach creates the notebook after its first real change, and crash-test works on any project with files it can read.
+It pauses only at the risky moments, at most once per message, and never twice for the same thing in a session.
+</details>
 
-**Is my data sent anywhere?** No. Seatbelt is plain text read by the AI tool you already use. There is no server and nothing to run.
+<details>
+<summary><b>Does it cost more tokens?</b></summary>
+
+Only a short main file is loaded on every request; the detailed sheets load when a moment needs them. The notebook also saves the AI from exploring your whole project at every session.
+</details>
+
+<details>
+<summary><b>Can I add it to a project I already started?</b></summary>
+
+Yes. The coach writes the notebook after its first real change, and crash-test works on any project whose files it can read.
+</details>
+
+<details>
+<summary><b>Is my code or data sent anywhere?</b></summary>
+
+No. Seatbelt is plain text read by the AI tool you already use. No server, nothing to run.
+</details>
 
 ## Contributing
 
-Improvements to the wording of the skills are as valuable as code. Before opening a pull request:
+Better wording in the skills is worth as much as code. Before opening a pull request:
 
 ```bash
 npm test          # content, scorer and runner tests (Node 22+, no dependencies)

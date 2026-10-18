@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="290" viewBox="0 0 880 290" role="img" aria-label="CRASH-TEST: NE PAS LANCER">
+<defs><pattern id="d" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="20" height="20" fill="#F5C518"/><rect width="10" height="20" fill="#111111"/></pattern></defs>
+<rect width="880" height="290" rx="18" fill="#0E1A1C"/>
+<rect x="20" y="22" width="16" height="56" fill="url(#d)"/>
+<text x="50" y="50" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="3" fill="#EAF4F4">CRASH-TEST</text>
+<text x="50" y="74" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="13" fill="#9DB7BB">notes-app  ·  vérifié par l'IA</text>
+<text x="560" y="62" text-anchor="end" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#E5484D">0 / 7</text>
+<g transform="rotate(-6 745 50)">
+  <rect x="640" y="28" width="210" height="44" rx="6" fill="none" stroke="#E5484D" stroke-width="4"/>
+  <text x="745" y="58" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="900" letter-spacing="2" fill="#E5484D">NE PAS LANCER</text>
+</g>
+<rect x="20" y="120" width="840" height="48" rx="10" fill="#16252A"/>
+<text x="40" y="150" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#EAF4F4">Secrets</text>
+<g transform="translate(250 144)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="144" r="16" fill="#E5484D"/><text x="360" y="150" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">F</text>
+<text x="396" y="150" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="14" fill="#9DB7BB">src/lib/ai.js:1  clé OpenAI lisible dans le navigateur</text>
+<rect x="20" y="178" width="840" height="48" rx="10" fill="#16252A"/>
+<text x="40" y="208" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#EAF4F4">Porte des données</text>
+<g transform="translate(250 202)"><circle cx="0" cy="0" r="5.5" fill="#E5484D"/><circle cx="16" cy="0" r="5.5" fill="#2C4248"/><circle cx="32" cy="0" r="5.5" fill="#2C4248"/><circle cx="48" cy="0" r="5.5" fill="#2C4248"/><circle cx="64" cy="0" r="5.5" fill="#2C4248"/></g>
+<circle cx="360" cy="202" r="16" fill="#E5484D"/><text x="360" y="208" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF">F</text>
+<text x="396" y="208" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="14" fill="#9DB7BB">001_notes.sql:10  tout le monde lit toutes les notes</text>
+<text x="40" y="262" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#9DB7BB">Bientôt : contrôles serveur  ·  paiements  ·  sauvegardes  ·  filet de tests  ·  vie privée</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="200" viewBox="0 0 880 200" role="img" aria-label="Seatbelt">
+<defs><pattern id="s" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="20" height="20" fill="#F5C518"/><rect width="10" height="20" fill="#111111"/></pattern></defs>
+<rect width="880" height="200" rx="18" fill="#0F3D43"/>
+<rect x="0" y="0" width="880" height="14" fill="url(#s)"/><rect x="0" y="186" width="880" height="14" fill="url(#s)"/>
+<g transform="translate(222 64)">
+  <rect width="58" height="40" rx="10" fill="none" stroke="#F5C518" stroke-width="6"/>
+  <rect x="16" y="13" width="26" height="14" rx="4" fill="#F5C518"/>
+  <rect x="-40" y="14" width="42" height="12" rx="3" fill="#7FD1D8"/>
+</g>
+<text x="300" y="103" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="8" fill="#EAF4F4">SEATBELT</text>
+<text x="440" y="142" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#F5C518">Un développeur senior patient, dans l'IA avec laquelle tu construis</text>
+<text x="440" y="170" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1" fill="#7FD1D8">Lovable  ·  Bolt  ·  Replit  ·  Claude  ·  Cursor  ·  Codex</text>
+</svg>
